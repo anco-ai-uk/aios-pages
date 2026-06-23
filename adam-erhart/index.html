@@ -51,19 +51,26 @@
   .pill{display:inline-flex;align-items:center;gap:10px;padding:9px 17px;border:1px solid rgba(25,201,119,0.3);border-radius:100px;font-size:13px;font-weight:600;color:#cfcfd4;background:var(--grad-soft)}
   .pill .dot{width:8px;height:8px;border-radius:50%;background:var(--cta);box-shadow:0 0 0 4px rgba(61,255,110,0.18)}
 
-  .orbit{position:relative;width:100%;aspect-ratio:1/1;max-width:440px;margin:0 auto;display:flex;align-items:center;justify-content:center}
-  .orbit .glow{position:absolute;inset:14%;border-radius:50%;background:radial-gradient(circle,rgba(6,128,78,0.42),transparent 65%);filter:blur(6px)}
-  .ring{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,0.10)}
-  .ring.r1{inset:6%}.ring.r2{inset:22%}.ring.r3{inset:38%}
-  .spinner{position:absolute;inset:6%;border-radius:50%;animation:spin 26s linear infinite}
-  @keyframes spin{to{transform:rotate(360deg)}}
-  .chip{position:absolute;top:50%;left:50%;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:16px;background:#111;border:1px solid rgba(25,201,119,0.32);display:flex;align-items:center;justify-content:center;color:#fff}
-  .chip svg{width:26px;height:26px}
-  @keyframes counter{to{transform:rotate(-360deg)}}
-  .chip .cnt{animation:counter 26s linear infinite}
-  .core{position:relative;width:138px;height:138px;border-radius:50%;background:var(--grad);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;z-index:2;box-shadow:0 0 60px rgba(6,128,78,0.55)}
-  .core .t{font-weight:900;font-size:21px;color:#03130B;letter-spacing:-0.02em;line-height:1}
-  .core .s{font-weight:800;font-size:9.5px;letter-spacing:0.18em;color:rgba(3,19,11,0.7);margin-top:6px}
+  .orbit{--sz:min(440px,84vw);position:relative;width:var(--sz);height:var(--sz);margin:0 auto}
+  .orbit .glow{position:absolute;top:50%;left:50%;width:42%;height:42%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(6,128,78,0.5),transparent 66%);filter:blur(10px)}
+  .oline{position:absolute;top:50%;left:50%;border-radius:50%;border:1px solid rgba(255,255,255,0.08);transform:translate(-50%,-50%);pointer-events:none}
+  .oline.in{width:calc(var(--sz)*0.62);height:calc(var(--sz)*0.62)}
+  .oline.out{width:calc(var(--sz)*0.87);height:calc(var(--sz)*0.87)}
+  .ospin{position:absolute;inset:0;border-radius:50%}
+  .ospin.inner{animation:ospin 30s linear infinite}
+  .ospin.outer{animation:ospin 46s linear infinite reverse}
+  @keyframes ospin{to{transform:rotate(360deg)}}
+  .ochip{position:absolute;top:50%;left:50%;width:calc(var(--sz)*0.135);height:calc(var(--sz)*0.135);margin:calc(var(--sz)*-0.0675) 0 0 calc(var(--sz)*-0.0675);border-radius:calc(var(--sz)*0.034);background:#111;border:1px solid rgba(25,201,119,0.32);display:flex;align-items:center;justify-content:center;color:#fff}
+  .ospin.inner .ochip{transform:rotate(var(--a)) translateY(calc(var(--sz)*-0.31)) rotate(calc(var(--a)*-1))}
+  .ospin.outer .ochip{transform:rotate(var(--a)) translateY(calc(var(--sz)*-0.435)) rotate(calc(var(--a)*-1))}
+  .ochip svg{width:calc(var(--sz)*0.058);height:calc(var(--sz)*0.058);display:block}
+  .ospin.inner .ochip svg{animation:ospin 30s linear infinite reverse}
+  .ospin.outer .ochip svg{animation:ospin 46s linear infinite}
+  .ocoredots{position:absolute;top:50%;left:50%;width:calc(var(--sz)*0.52);height:calc(var(--sz)*0.52);transform:translate(-50%,-50%);z-index:2;animation:ospin 22s linear infinite}
+  .ocore{position:absolute;top:50%;left:50%;width:calc(var(--sz)*0.30);height:calc(var(--sz)*0.30);transform:translate(-50%,-50%);border-radius:50%;background:var(--grad);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;z-index:3;box-shadow:0 0 55px rgba(6,128,78,0.5)}
+  .ocore .t{font-weight:900;font-size:calc(var(--sz)*0.05);color:#03130B;letter-spacing:-0.02em;line-height:1}
+  .ocore .s{font-weight:800;font-size:calc(var(--sz)*0.022);letter-spacing:0.18em;color:rgba(3,19,11,0.7);margin-top:5px}
+  @media (prefers-reduced-motion: reduce){.ospin,.ospin .ochip svg,.ocoredots{animation:none}}
 
   .grid{display:grid;gap:20px}
   .g3{grid-template-columns:repeat(3,1fr)}
@@ -234,14 +241,21 @@
       <div class="reveal d2">
         <div class="orbit">
           <div class="glow"></div>
-          <div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div>
-          <div class="spinner">
-            <div class="chip" style="transform:translate(0,-188px)"><span class="cnt"><svg class="brand"><use href="#logo-youtube"/></svg></span></div>
-            <div class="chip" style="transform:rotate(90deg) translate(0,-188px)"><span class="cnt" style="display:block;transform:rotate(-90deg)"><svg class="brand"><use href="#logo-ghl"/></svg></span></div>
-            <div class="chip" style="transform:rotate(180deg) translate(0,-188px)"><span class="cnt" style="display:block;transform:rotate(-180deg)"><svg class="brand"><use href="#logo-kit"/></svg></span></div>
-            <div class="chip" style="transform:rotate(270deg) translate(0,-188px)"><span class="cnt" style="display:block;transform:rotate(-270deg)"><svg class="ic"><use href="#i-image"/></svg></span></div>
+          <div class="oline in"></div>
+          <div class="oline out"></div>
+          <div class="ospin outer">
+            <div class="ochip" style="--a:45deg"><svg><use href="#i-doc" stroke="#fff" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="ochip" style="--a:165deg"><svg><use href="#i-chart" stroke="#fff" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="ochip" style="--a:285deg"><svg><use href="#i-folder" stroke="#fff" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
           </div>
-          <div class="core"><div class="t">AIOS</div><div class="s">THE BRAIN</div></div>
+          <div class="ospin inner">
+            <div class="ochip" style="--a:0deg"><svg><use href="#logo-youtube"/></svg></div>
+            <div class="ochip" style="--a:90deg"><svg><use href="#logo-ghl"/></svg></div>
+            <div class="ochip" style="--a:180deg"><svg><use href="#logo-kit"/></svg></div>
+            <div class="ochip" style="--a:270deg"><svg><use href="#i-image" stroke="#fff" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          </div>
+          <svg class="ocoredots" viewBox="0 0 220 220"><g stroke="#19C977" stroke-width="1.2" opacity="0.4"><line x1="206.0" y1="110.0" x2="213.0" y2="110.0"/><line x1="204.5" y1="126.7" x2="211.4" y2="127.9"/><line x1="200.2" y1="142.8" x2="206.8" y2="145.2"/><line x1="193.1" y1="158.0" x2="199.2" y2="161.5"/><line x1="183.5" y1="171.7" x2="188.9" y2="176.2"/><line x1="171.7" y1="183.5" x2="176.2" y2="188.9"/><line x1="158.0" y1="193.1" x2="161.5" y2="199.2"/><line x1="142.8" y1="200.2" x2="145.2" y2="206.8"/><line x1="126.7" y1="204.5" x2="127.9" y2="211.4"/><line x1="110.0" y1="206.0" x2="110.0" y2="213.0"/><line x1="93.3" y1="204.5" x2="92.1" y2="211.4"/><line x1="77.2" y1="200.2" x2="74.8" y2="206.8"/><line x1="62.0" y1="193.1" x2="58.5" y2="199.2"/><line x1="48.3" y1="183.5" x2="43.8" y2="188.9"/><line x1="36.5" y1="171.7" x2="31.1" y2="176.2"/><line x1="26.9" y1="158.0" x2="20.8" y2="161.5"/><line x1="19.8" y1="142.8" x2="13.2" y2="145.2"/><line x1="15.5" y1="126.7" x2="8.6" y2="127.9"/><line x1="14.0" y1="110.0" x2="7.0" y2="110.0"/><line x1="15.5" y1="93.3" x2="8.6" y2="92.1"/><line x1="19.8" y1="77.2" x2="13.2" y2="74.8"/><line x1="26.9" y1="62.0" x2="20.8" y2="58.5"/><line x1="36.5" y1="48.3" x2="31.1" y2="43.8"/><line x1="48.3" y1="36.5" x2="43.8" y2="31.1"/><line x1="62.0" y1="26.9" x2="58.5" y2="20.8"/><line x1="77.2" y1="19.8" x2="74.8" y2="13.2"/><line x1="93.3" y1="15.5" x2="92.1" y2="8.6"/><line x1="110.0" y1="14.0" x2="110.0" y2="7.0"/><line x1="126.7" y1="15.5" x2="127.9" y2="8.6"/><line x1="142.8" y1="19.8" x2="145.2" y2="13.2"/><line x1="158.0" y1="26.9" x2="161.5" y2="20.8"/><line x1="171.7" y1="36.5" x2="176.2" y2="31.1"/><line x1="183.5" y1="48.3" x2="188.9" y2="43.8"/><line x1="193.1" y1="62.0" x2="199.2" y2="58.5"/><line x1="200.2" y1="77.2" x2="206.8" y2="74.8"/><line x1="204.5" y1="93.3" x2="211.4" y2="92.1"/></g><g><circle cx="199.0" cy="110.0" r="3" fill="#FFFFFF"/><circle cx="193.6" cy="140.4" r="2.3" fill="#19C977"/><circle cx="178.2" cy="167.2" r="2.3" fill="#19C977"/><circle cx="154.5" cy="187.1" r="2.3" fill="#19C977"/><circle cx="125.5" cy="197.6" r="2.3" fill="#19C977"/><circle cx="94.5" cy="197.6" r="2.3" fill="#19C977"/><circle cx="65.5" cy="187.1" r="3" fill="#FFFFFF"/><circle cx="41.8" cy="167.2" r="2.3" fill="#19C977"/><circle cx="26.4" cy="140.4" r="2.3" fill="#19C977"/><circle cx="21.0" cy="110.0" r="2.3" fill="#19C977"/><circle cx="26.4" cy="79.6" r="2.3" fill="#19C977"/><circle cx="41.8" cy="52.8" r="2.3" fill="#19C977"/><circle cx="65.5" cy="32.9" r="3" fill="#FFFFFF"/><circle cx="94.5" cy="22.4" r="2.3" fill="#19C977"/><circle cx="125.5" cy="22.4" r="2.3" fill="#19C977"/><circle cx="154.5" cy="32.9" r="2.3" fill="#19C977"/><circle cx="178.2" cy="52.8" r="2.3" fill="#19C977"/><circle cx="193.6" cy="79.6" r="2.3" fill="#19C977"/></g><path d="M199.0,110.0 A89 89 0 0 1 161.0,182.9" fill="none" stroke="#19C977" stroke-width="2.4" stroke-linecap="round" opacity="0.9"/><circle cx="161.0" cy="182.9" r="8" fill="#FFFFFF" opacity="0.18"/><circle cx="161.0" cy="182.9" r="3.6" fill="#FFFFFF"/></svg>
+          <div class="ocore"><div class="t">AIOS</div><div class="s">THE BRAIN</div></div>
         </div>
       </div>
     </div>
