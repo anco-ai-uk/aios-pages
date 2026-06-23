@@ -32,6 +32,7 @@
   p.lead{font-size:clamp(17px,1.6vw,21px);color:var(--muted);max-width:680px}
 
   svg.ic{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .brand{width:24px;height:24px;display:block}
   .icbox{width:50px;height:50px;border-radius:13px;display:flex;align-items:center;justify-content:center;background:var(--grad-soft);border:1px solid rgba(25,201,119,0.28);color:var(--green2);flex:none}
   .icbox.solid{background:var(--grad);border:none;color:#03130B}
   .icbox.solid svg{stroke:#03130B}
@@ -55,7 +56,7 @@
   .ring.r1{inset:6%}.ring.r2{inset:22%}.ring.r3{inset:38%}
   .spinner{position:absolute;inset:6%;border-radius:50%;animation:spin 26s linear infinite}
   @keyframes spin{to{transform:rotate(360deg)}}
-  .chip{position:absolute;top:50%;left:50%;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:16px;background:#111;border:1px solid rgba(25,201,119,0.32);display:flex;align-items:center;justify-content:center;color:var(--green2)}
+  .chip{position:absolute;top:50%;left:50%;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:16px;background:#111;border:1px solid rgba(25,201,119,0.32);display:flex;align-items:center;justify-content:center;color:#fff}
   .chip svg{width:26px;height:26px}
   @keyframes counter{to{transform:rotate(-360deg)}}
   .chip .cnt{animation:counter 26s linear infinite}
@@ -199,6 +200,9 @@
     <symbol id="i-check" viewBox="0 0 24 24"><polyline points="4 12 9.5 18 20 6"/></symbol>
     <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></symbol>
     <symbol id="i-radar" viewBox="0 0 24 24"><path d="M12 4a8 8 0 1 0 8 8"/><path d="M12 12l6-4"/><circle cx="12" cy="12" r="2.2"/></symbol>
+    <symbol id="logo-youtube" viewBox="0 0 24 24"><path fill="#fff" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></symbol>
+    <symbol id="logo-kit" viewBox="0 0 24 24"><path fill="#fff" d="m3.5 11.633-2.434 2.408V8.687a.53.53 0 0 0-.533-.527.53.53 0 0 0-.533.527v6.624a.528.528 0 0 0 .532.526.533.533 0 0 0 .377-.153l2.974-2.939 2.974 2.94a.535.535 0 0 0 .754 0 .522.522 0 0 0 0-.746l-2.974-2.938L7.61 9.06a.522.522 0 0 0 0-.745.538.538 0 0 0-.753 0l-3.344 3.307c-.003 0-.005.003-.007.005l-.007.006v-.001zm8.826 4.206a.53.53 0 0 1-.533-.526V8.688a.53.53 0 0 1 .533-.528.53.53 0 0 1 .533.528v6.624a.53.53 0 0 1-.533.526v.001zm7.257-6.624v6.098c0 .29.238.526.532.526a.53.53 0 0 0 .533-.526V9.215h2.818A.53.53 0 0 0 24 8.688a.53.53 0 0 0-.533-.527h-6.702a.53.53 0 0 0-.533.527.53.53 0 0 0 .533.527h2.819-.001z"/></symbol>
+    <symbol id="logo-ghl" viewBox="0 0 24 24"><g fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 20.5V10"/><path d="M5.5 13 8.5 10 11.5 13"/><path d="M15.5 20.5V4.5"/><path d="M12.5 7.5 15.5 4.5 18.5 7.5"/></g></symbol>
   </defs>
 </svg>
 
@@ -223,9 +227,9 @@
           <div class="glow"></div>
           <div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div>
           <div class="spinner">
-            <div class="chip" style="transform:translate(0,-188px)"><span class="cnt"><svg class="ic"><use href="#i-play"/></svg></span></div>
-            <div class="chip" style="transform:rotate(90deg) translate(0,-188px)"><span class="cnt" style="display:block;transform:rotate(-90deg)"><svg class="ic"><use href="#i-funnel"/></svg></span></div>
-            <div class="chip" style="transform:rotate(180deg) translate(0,-188px)"><span class="cnt" style="display:block;transform:rotate(-180deg)"><svg class="ic"><use href="#i-mail"/></svg></span></div>
+            <div class="chip" style="transform:translate(0,-188px)"><span class="cnt"><svg class="brand"><use href="#logo-youtube"/></svg></span></div>
+            <div class="chip" style="transform:rotate(90deg) translate(0,-188px)"><span class="cnt" style="display:block;transform:rotate(-90deg)"><svg class="brand"><use href="#logo-ghl"/></svg></span></div>
+            <div class="chip" style="transform:rotate(180deg) translate(0,-188px)"><span class="cnt" style="display:block;transform:rotate(-180deg)"><svg class="brand"><use href="#logo-kit"/></svg></span></div>
             <div class="chip" style="transform:rotate(270deg) translate(0,-188px)"><span class="cnt" style="display:block;transform:rotate(-270deg)"><svg class="ic"><use href="#i-image"/></svg></span></div>
           </div>
           <div class="core"><div class="t">AIOS</div><div class="s">THE BRAIN</div></div>
@@ -279,16 +283,16 @@
         </g>
         <g>
           <rect x="40" y="66" width="210" height="60" rx="13" fill="#121212" stroke="rgba(25,201,119,0.28)"/>
-          <rect x="56" y="82" width="28" height="28" rx="8" fill="url(#gg)"/>
+          <use href="#logo-youtube" x="56" y="82" width="28" height="28"/>
           <text class="node-label" x="98" y="92">YouTube Analytics</text><text class="node-sub" x="98" y="110">your stats + competitor channels</text>
           <rect x="40" y="175" width="210" height="60" rx="13" fill="#121212" stroke="rgba(25,201,119,0.28)"/>
-          <rect x="56" y="191" width="28" height="28" rx="8" fill="url(#gg)"/>
+          <use href="#i-image" x="56" y="191" width="28" height="28" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
           <text class="node-label" x="98" y="201">Video Production</text><text class="node-sub" x="98" y="219">ideas, scripts, thumbnails</text>
           <rect x="40" y="305" width="210" height="60" rx="13" fill="#121212" stroke="rgba(25,201,119,0.28)"/>
-          <rect x="56" y="321" width="28" height="28" rx="8" fill="url(#gg)"/>
+          <use href="#logo-ghl" x="56" y="321" width="28" height="28"/>
           <text class="node-label" x="98" y="331">Go High Level</text><text class="node-sub" x="98" y="349">affiliate funnel + leads</text>
           <rect x="40" y="414" width="210" height="60" rx="13" fill="#121212" stroke="rgba(25,201,119,0.28)"/>
-          <rect x="56" y="430" width="28" height="28" rx="8" fill="url(#gg)"/>
+          <use href="#logo-kit" x="56" y="430" width="28" height="28"/>
           <text class="node-label" x="98" y="440">Kit (ConvertKit)</text><text class="node-sub" x="98" y="458">email sends + opens</text>
         </g>
         <circle cx="560" cy="266" r="120" fill="url(#hubglow)"/>
@@ -297,10 +301,10 @@
         <text class="hub-sub" x="560" y="282" text-anchor="middle">THE BRAIN</text>
         <g>
           <rect x="790" y="120" width="210" height="60" rx="13" fill="#121212" stroke="rgba(25,201,119,0.45)"/>
-          <rect x="806" y="136" width="28" height="28" rx="8" fill="url(#gg)"/>
+          <use href="#i-doc" x="806" y="136" width="28" height="28" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
           <text class="node-label" x="848" y="146">Daily Brief</text><text class="node-sub" x="848" y="164">what to do, every morning</text>
           <rect x="790" y="360" width="210" height="60" rx="13" fill="#121212" stroke="rgba(25,201,119,0.45)"/>
-          <rect x="806" y="376" width="28" height="28" rx="8" fill="url(#gg)"/>
+          <use href="#i-folder" x="806" y="376" width="28" height="28" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
           <text class="node-label" x="848" y="386">Finished Assets</text><text class="node-sub" x="848" y="404">scripts, thumbnails, folders</text>
         </g>
       </svg>
@@ -353,9 +357,9 @@
     </div>
     <div class="attr">
       <div class="flow reveal">
-        <div class="flownode"><span class="icbox"><svg class="ic"><use href="#i-play"/></svg></span><div><div class="lab">The video</div><div class="sub">A viewer watches and clicks your link</div></div></div>
+        <div class="flownode"><span class="icbox"><svg class="brand"><use href="#logo-youtube"/></svg></span><div><div class="lab">The video</div><div class="sub">A viewer watches and clicks your link</div></div></div>
         <div class="flowarrow"><svg class="ic"><use href="#i-arrow"/></svg></div>
-        <div class="flownode"><span class="icbox"><svg class="ic"><use href="#i-funnel"/></svg></span><div><div class="lab">Go High Level</div><div class="sub">They land in your funnel and convert</div></div></div>
+        <div class="flownode"><span class="icbox"><svg class="brand"><use href="#logo-ghl"/></svg></span><div><div class="lab">Go High Level</div><div class="sub">They land in your funnel and convert</div></div></div>
         <div class="flowarrow"><svg class="ic"><use href="#i-arrow"/></svg></div>
         <div class="flownode"><span class="icbox solid"><svg class="ic"><use href="#i-pound"/></svg></span><div><div class="lab">Affiliate revenue</div><div class="sub">Tied back to the exact video that drove it</div></div></div>
       </div>
