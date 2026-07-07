@@ -3,22 +3,912 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex">
-<title>Anco AI</title>
-<link rel="icon" type="image/png" href="data:image/png;base64,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">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+<title>AIOS | The AI Operating System for Service Businesses | Anco AI</title>
+<meta name="description" content="You built a business, but it can't run without you. AIOS is a managed AI operating system that runs it for you. 10+ hours of your week back, live in 14 days or the install is refunded.">
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Inter:wght@400;500&family=Fragment+Mono&display=swap" rel="stylesheet">
 <style>
-  html,body{height:100%;margin:0}
-  body{background:#0A0A0A;color:#fff;font-family:'Montserrat',sans-serif;display:flex;align-items:center;justify-content:center;text-align:center}
-  h1{font-weight:900;letter-spacing:-0.02em;font-size:34px}
-  h1 span{background:linear-gradient(135deg,#06804E,#19C977);-webkit-background-clip:text;background-clip:text;color:transparent}
-  p{color:#A1A1AA;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;font-size:12px;margin-top:14px}
+/* Hallmark · macrostructure: Marquee Hero + product plates · studied: yes · DNA-source: url
+ * source-url: https://revone.app/ · observed-fonts: Satoshi + Inter + Fragment Mono → mapped to Montserrat(500-700) + Inter + Fragment Mono
+ * observed-accent: #0099ff periwinkle flood → Anco green · paper: near-black panels #141412 on #050505
+ * genre: modern-minimal · rhythm: generous symmetric, product-shot-led, one accent, calm motion */
+:root{
+  --bg:#050505; --panel:#121412; --line:rgba(255,255,255,0.08); --line-2:rgba(255,255,255,0.15);
+  --ink:#F4F6F4; --muted:#A2A8A2; --dim:#6E746E;
+  --green:#19C977; --green-deep:#0E9C5C; --green-ink:#03130B;
+  --disp:'Montserrat',sans-serif; --body:'Inter',sans-serif; --mono:'Fragment Mono',monospace;
+  --r-lg:28px; --r-md:20px;
+  --w:1140px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{overflow-x:clip}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+::selection{background:rgba(25,201,119,0.35)}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--w);margin:0 auto;padding:0 24px}
+
+/* ---------- nav: floating pill ---------- */
+.nav{position:fixed;top:18px;left:50%;transform:translateX(-50%);z-index:40;display:flex;align-items:center;gap:6px;
+  background:rgba(18,20,18,0.72);border:1px solid var(--line-2);border-radius:999px;padding:8px 8px 8px 18px;
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);white-space:nowrap}
+.nav .brand{display:flex;align-items:center;gap:9px;margin-right:10px}
+.nav .mark{height:24px;width:auto;display:block}
+.nav .brand b{font-family:var(--disp);font-weight:700;font-size:14.5px;letter-spacing:0.02em}
+.nav .brand b em{font-style:normal;color:var(--green)}
+.nav a.item{font-size:13.5px;color:var(--muted);padding:7px 12px;border-radius:999px;transition:color 0.18s ease}
+.nav a.item:hover{color:var(--ink)}
+.nav a.cta{font-size:13.5px;font-weight:600;color:var(--green-ink);background:var(--green);padding:8px 16px;border-radius:999px;margin-left:6px;transition:background-color 0.18s ease}
+.nav a.cta:hover{background:#2BD684}
+.nav a:focus-visible,.btn:focus-visible,summary:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+
+/* ---------- hero ---------- */
+.hero{padding:170px 24px 0;text-align:center;position:relative;overflow:clip}
+.hero > *{position:relative;z-index:2}
+.hero-bg{position:absolute;top:0;left:0;right:0;height:112vh;min-height:680px;max-height:1200px;overflow:clip;z-index:0;pointer-events:none}
+.hero-bg video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;animation:bgfade 2.4s ease 0.6s forwards}
+@keyframes bgfade{to{opacity:0.38}}
+.hero-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,5,5,0.5) 0%,rgba(5,5,5,0.66) 58%,var(--bg) 96%)}
+@media (prefers-reduced-motion: reduce){.hero-bg video{display:none}}
+.hero .app-mark{height:64px;width:auto;margin:0 auto 34px;display:block;filter:drop-shadow(0 14px 34px rgba(25,201,119,0.35))}
+h1{font-family:var(--disp);font-weight:600;font-size:clamp(40px,6vw,72px);line-height:1.08;letter-spacing:-0.03em;max-width:820px;margin:0 auto;overflow-wrap:anywhere;min-width:0}
+h1 .accent{color:var(--green)}
+.hero .sub{color:var(--muted);font-size:18px;max-width:580px;margin:26px auto 0}
+.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:30px auto 0;max-width:760px}
+.chips span{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:6px 13px;background:rgba(10,12,10,0.55);white-space:nowrap;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.chips svg{flex:none;opacity:0.92}
+.chips .more{color:var(--dim);border-style:dashed}
+.chips i{width:5px;height:5px;border-radius:50%;background:var(--green);flex:none}
+.btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--body);font-weight:600;font-size:15.5px;border-radius:999px;padding:14px 28px;transition:background-color 0.18s ease,transform 0.18s ease;white-space:nowrap}
+.btn.primary{background:var(--green);color:var(--green-ink)}
+.btn.primary:hover{background:#2BD684;transform:translateY(-1px)}
+.hero .btn{margin-top:36px}
+.fineprint{font-family:var(--mono);font-size:12px;color:var(--dim);margin-top:22px}
+
+/* ---------- product plate (signature move) ---------- */
+.plate{max-width:1240px;margin:74px auto 0;padding:clamp(20px,4.5vw,64px);border-radius:var(--r-lg);background:linear-gradient(160deg,#12B76A,#0B7A47)}
+.plate .shot{border-radius:14px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,0.45)}
+.plate-note{font-family:var(--mono);font-size:12px;color:rgba(3,19,11,0.7);text-align:center;padding-top:22px}
+.plate-frame{font-family:var(--disp);font-weight:600;font-size:clamp(18px,2.1vw,24px);letter-spacing:-0.015em;color:#03130B;text-align:center;margin-bottom:28px}
+
+/* ---------- hero plate: brief + background-work receipt ---------- */
+.plate-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2.6vw,32px);align-items:stretch}
+.receipt{background:#0C0E0C;border-radius:16px;padding:22px 24px;box-shadow:0 24px 60px rgba(0,0,0,0.35);text-align:left;display:flex;flex-direction:column}
+.receipt .r-title{display:inline-flex;align-items:center;gap:8px}
+.r-foot{margin-top:auto;background:rgba(25,201,119,0.09);border:1px solid rgba(25,201,119,0.22);border-radius:11px;padding:13px 15px;font-size:13px;color:#C9CFC9;line-height:1.5}
+.r-foot b{color:var(--green);font-weight:600}
+.b-foot{margin-top:18px;padding-top:15px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);line-height:1.5}
+.b-foot b{color:var(--ink);font-weight:600}
+.receipt .r-head{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:13px;border-bottom:1px solid var(--line)}
+.receipt .r-title{font-weight:600;font-size:14px}
+.receipt .r-time{font-family:var(--mono);font-size:11px;color:var(--green)}
+.receipt ul{list-style:none;margin-top:6px}
+.receipt li{padding:10px 0;border-bottom:1px solid var(--line);font-size:13.5px;color:var(--muted);display:flex;gap:10px;align-items:flex-start}
+.receipt li:last-child{border-bottom:none}
+.receipt .tick{flex:none;color:var(--green);font-size:13px;margin-top:1px}
+.plate .brief{max-width:none;box-shadow:0 24px 60px rgba(0,0,0,0.35);text-align:left;height:100%}
+
+/* ---------- four layers ---------- */
+.layers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.layer{background:var(--panel);border-radius:var(--r-md);padding:30px 26px;transition:background-color 0.2s ease}
+.layer:hover{background:#181B18}
+.layer .l-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.layer .lnum{font-family:var(--mono);font-size:11px;color:var(--green);letter-spacing:0.1em;padding-top:4px}
+.layer .a-ic [pathLength]{stroke-dasharray:1}
+.layer h3{font-size:19px;margin-top:12px}
+.layer p{color:var(--muted);font-size:14px;margin-top:10px}
+
+/* ---------- automation library ---------- */
+.auto-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.acard{background:var(--panel);border-radius:16px;padding:24px 24px;transition:background-color 0.2s ease}
+.acard:hover{background:#181B18}
+.acard .a-top{display:flex;align-items:center;gap:11px}
+.acard .a-ic{flex:none}
+.acard .a-ic [pathLength]{stroke-dasharray:1}
+.acard h4{font-family:var(--disp);font-weight:600;font-size:16px;letter-spacing:-0.01em}
+.acard p{color:var(--muted);font-size:13.5px;margin-top:8px;line-height:1.6}
+.acard.slot{border:1px dashed var(--line-2);background:transparent}
+.acard.slot h4{color:var(--green)}
+
+/* ---------- section heads ---------- */
+section{padding:140px 0}
+section.tight{padding:100px 0}
+.head{text-align:center;max-width:640px;margin:0 auto 70px}
+h2{font-family:var(--disp);font-weight:600;font-size:clamp(30px,3.6vw,44px);line-height:1.15;letter-spacing:-0.02em}
+.head p{color:var(--muted);margin-top:16px;font-size:16.5px}
+
+/* ---------- alternating panels ---------- */
+.panel{background:var(--panel);border-radius:var(--r-lg);padding:clamp(30px,4vw,60px);display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(28px,4vw,60px);align-items:center}
+.panel + .panel{margin-top:26px}
+.panel.flip{grid-template-columns:1.15fr 1fr}
+.panel.flip .p-copy{order:2}
+.panel.flip .p-visual{order:1}
+h3{font-family:var(--disp);font-weight:600;font-size:26px;letter-spacing:-0.015em;line-height:1.25}
+.p-copy p{color:var(--muted);font-size:15.5px;margin-top:14px}
+.checks{list-style:none;margin-top:26px;display:grid;gap:13px}
+.checks li{display:flex;gap:11px;align-items:flex-start;font-size:14.5px;color:#C9CFC9}
+.checks svg{flex:none;margin-top:3px}
+.p-visual .shot{border-radius:14px;overflow:hidden;border:1px solid var(--line);box-shadow:0 24px 60px rgba(0,0,0,0.5)}
+
+/* brief mock */
+.brief{background:#101210;border:1px solid var(--line-2);border-radius:16px;padding:22px 24px;max-width:none;box-shadow:0 24px 60px rgba(0,0,0,0.5);display:flex;flex-direction:column}
+.brief .b-head{display:flex;align-items:center;gap:11px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.brief .b-mark{height:30px;width:auto;flex:none}
+.brief .b-name{font-weight:600;font-size:14px}
+.brief .b-chan{font-size:12px;color:var(--dim)}
+.brief .b-time{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--green)}
+.brief ul{list-style:none;margin-top:6px}
+.brief li{padding:11px 0;border-bottom:1px solid var(--line);font-size:13.5px;color:var(--muted);display:flex;gap:10px}
+.brief li:last-child{border-bottom:none}
+.brief li b{color:var(--ink);font-weight:600}
+.brief li .ic{flex:none;width:26px;height:26px;border-radius:7px;background:rgba(25,201,119,0.1);display:grid;place-items:center;margin-top:1px}
+
+/* ---------- data & analytics ---------- */
+.chartbox{background:#101210;border:1px solid var(--line-2);border-radius:16px;padding:22px 24px;box-shadow:0 24px 60px rgba(0,0,0,0.5)}
+.chartbox .c-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px}
+.chartbox .c-title{font-weight:600;font-size:14px}
+.chartbox .c-range{font-family:var(--mono);font-size:11px;color:var(--dim)}
+.chartbox svg{width:100%;height:auto;display:block}
+.evt-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.evt{display:inline-flex;align-items:center;gap:7px;font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:5px 12px}
+.evt i{width:6px;height:6px;border-radius:50%;flex:none}
+.insight{margin-top:16px;background:rgba(25,201,119,0.07);border:1px solid rgba(25,201,119,0.25);border-radius:14px;padding:16px 18px}
+.insight .i-tag{font-family:var(--mono);font-size:10.5px;letter-spacing:0.1em;color:var(--green);text-transform:uppercase}
+.insight p{font-size:13.5px;color:#D6DBD6;margin-top:8px;line-height:1.6}
+.insight p b{color:var(--ink);font-weight:600}
+
+/* ---------- feature grid ---------- */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.fcard{background:var(--panel);border-radius:var(--r-lg);padding:clamp(28px,3.4vw,44px)}
+.fcard h3{font-size:21px}
+.fcard > p{color:var(--muted);font-size:14.5px;margin-top:12px;max-width:46ch}
+.fcard .art{margin-top:30px;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+.fcard .art img{width:100%;height:250px;object-fit:cover}
+.fcard .art.tint{background:linear-gradient(150deg,rgba(25,201,119,0.16),rgba(14,156,92,0.05));border:1px solid rgba(25,201,119,0.2);height:auto;min-height:250px;display:grid;place-items:center;padding:24px}
+.month-list{width:100%;max-width:340px;display:grid;gap:9px;list-style:none}
+.month-list li{display:flex;align-items:center;gap:10px;background:rgba(10,12,10,0.8);border:1px solid var(--line-2);border-radius:10px;padding:10px 14px;font-size:13px;color:#C9CFC9}
+.month-list .mo{font-family:var(--mono);font-size:10.5px;color:var(--green);flex:none;width:60px}
+.month-list .tick{margin-left:auto;color:var(--green);font-size:12px}
+
+/* ---------- roi calculator ---------- */
+.roi-card{background:var(--panel);border-radius:var(--r-lg);padding:clamp(28px,3.5vw,52px);display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(30px,4vw,64px);align-items:center}
+.roi-ctl + .roi-ctl{margin-top:34px}
+.roi-ctl-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px}
+.roi-ctl-top span{font-size:14.5px;color:#C9CFC9}
+.roi-ctl-top output{font-family:var(--disp);font-weight:700;font-size:24px;color:var(--green);font-variant-numeric:tabular-nums}
+.roi-ctl-sub{font-family:var(--mono);font-size:11px;color:var(--dim);margin-top:8px;text-align:right}
+.roi-slider{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:3px;background:rgba(25,201,119,0.18);outline:none;cursor:pointer}
+.roi-slider::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--green);border:3px solid #0d0f0d;box-shadow:0 3px 10px rgba(0,0,0,0.5);cursor:pointer}
+.roi-slider::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--green);border:3px solid #0d0f0d;cursor:pointer}
+.roi-slider:focus-visible{outline:2px solid var(--green);outline-offset:4px}
+.roi-result{border-left:1px solid var(--line);padding-left:clamp(24px,3vw,56px)}
+.roi-big{font-family:var(--disp);font-weight:700;font-size:clamp(44px,5.5vw,68px);letter-spacing:-0.03em;line-height:1;color:var(--green);font-variant-numeric:tabular-nums}
+.roi-big-sub{color:var(--muted);font-size:15px;margin-top:12px;max-width:34ch}
+.roi-yr-label{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--dim);margin-top:28px}
+.roi-bars{margin-top:14px;display:grid;gap:12px}
+.roi-bar{display:grid;grid-template-columns:88px 1fr auto;align-items:center;gap:14px}
+.rb-lbl{font-size:12.5px;color:var(--dim)}
+.rb-track{height:12px;border-radius:6px;background:rgba(255,255,255,0.05);overflow:hidden}
+.rb-track i{display:block;height:100%;border-radius:6px;background:rgba(25,201,119,0.35)}
+.roi-bar.val .rb-track i{background:var(--green)}
+.rb-amt{font-family:var(--disp);font-weight:600;font-size:15px;font-variant-numeric:tabular-nums;min-width:70px;text-align:right}
+.roi-bar.val .rb-amt{color:var(--green)}
+.roi-verdict{margin-top:26px;font-size:15px;color:#C9CFC9;line-height:1.6}
+.roi-verdict b{color:var(--ink);font-weight:600}
+.roi-payback{margin-top:12px;font-size:13.5px;color:var(--muted);line-height:1.6}
+.roi-payback b{color:var(--green);font-weight:600}
+@media (max-width:820px){
+  .roi-card{grid-template-columns:1fr;gap:34px}
+  .roi-result{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:30px}
+}
+
+/* ---------- workflow sequences ---------- */
+.seq-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+.seq{background:var(--panel);border-radius:var(--r-lg);padding:clamp(26px,2.6vw,36px);transition:background-color 0.2s ease}
+.seq:hover{background:#181B18}
+.seq-head{display:flex;align-items:flex-start;gap:12px;margin-bottom:24px}
+.seq-num{font-family:var(--mono);font-size:11.5px;color:var(--green);border:1px solid rgba(25,201,119,0.3);border-radius:8px;padding:4px 8px;flex:none;margin-top:3px}
+.seq-head h3{font-family:var(--disp);font-weight:600;font-size:19px;letter-spacing:-0.015em}
+.seq-head p{color:var(--muted);font-size:13.5px;margin-top:6px;line-height:1.5;max-width:42ch}
+.seq-steps{list-style:none;position:relative}
+.seq-steps::before{content:"";position:absolute;left:17px;top:24px;bottom:24px;width:2px;background:rgba(25,201,119,0.16)}
+.rail-fill{position:absolute;left:17px;top:24px;bottom:24px;width:2px;background:var(--green);transform:scaleY(0);transform-origin:top;opacity:0.85}
+.sstep{display:flex;align-items:center;gap:14px;padding:8px 0;position:relative}
+.sdot{width:36px;height:36px;border-radius:11px;background:#111311;border:1px solid rgba(25,201,119,0.3);display:grid;place-items:center;flex:none;position:relative;z-index:2}
+.sdot svg{width:18px;height:18px}
+.sstep.out .sdot{background:var(--green);border-color:var(--green);box-shadow:0 5px 16px rgba(25,201,119,0.28)}
+.sstep.out .sdot svg{stroke:var(--green-ink)}
+.slabel{font-size:13.5px;color:#C9CFC9;line-height:1.4}
+.sstep.out .slabel{color:var(--ink);font-weight:500}
+@media (max-width:820px){ .seq-grid{grid-template-columns:1fr} }
+
+/* ---------- proof ---------- */
+.proof{display:grid;grid-template-columns:1fr 1fr 1fr;gap:26px}
+.pcard{background:var(--panel);border-radius:var(--r-md);padding:32px 30px;display:flex;flex-direction:column}
+.pcard .q{font-size:15px;line-height:1.7;color:#D6DBD6}
+.pcard .who{margin-top:auto;padding-top:24px;font-family:var(--mono);font-size:11.5px;color:var(--dim)}
+.pcard .who b{color:var(--green);font-weight:400;display:block;margin-bottom:2px}
+
+/* ---------- pricing plate ---------- */
+.price-plate{max-width:1240px;margin:0 auto;border-radius:var(--r-lg);background:linear-gradient(160deg,#12B76A,#0B7A47);padding:clamp(34px,5vw,72px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,4vw,70px);align-items:center}
+.price-plate h2{color:var(--green-ink)}
+.price-plate .lead-p{color:rgba(3,19,11,0.78);font-size:16.5px;margin-top:18px;max-width:44ch}
+.price-plate .guarantee{display:inline-flex;align-items:center;gap:10px;margin-top:30px;background:rgba(3,19,11,0.16);border-radius:999px;padding:10px 18px;font-size:13.5px;font-weight:500;color:var(--green-ink)}
+.pcards{display:grid;gap:18px}
+.pc{background:#0C0E0C;border-radius:18px;padding:28px 30px;box-shadow:0 26px 70px rgba(0,0,0,0.35)}
+.pc .tag{font-family:var(--mono);font-size:11px;color:var(--green);letter-spacing:0.08em;text-transform:uppercase}
+.pc .row{display:flex;align-items:baseline;gap:12px;margin-top:10px;flex-wrap:wrap}
+.pc .name{font-family:var(--disp);font-weight:600;font-size:19px}
+.pc .amount{margin-left:auto;font-family:var(--disp);font-weight:700;font-size:30px;letter-spacing:-0.02em;font-variant-numeric:tabular-nums}
+.pc .amount small{font-family:var(--body);font-weight:400;font-size:13px;color:var(--muted)}
+.pc .meta{font-size:13px;color:var(--dim);margin-top:6px}
+.pc ul{list-style:none;margin-top:16px;display:grid;gap:9px}
+.pc li{font-size:13.5px;color:var(--muted);display:flex;gap:9px;align-items:flex-start}
+.pc li svg{flex:none;margin-top:3px}
+.price-cta{grid-column:1 / -1;text-align:center;margin-top:40px}
+.price-cta .btn{background:#0C0E0C;color:var(--ink)}
+.price-cta .btn:hover{background:#161916}
+
+/* ---------- pricing extras ---------- */
+.cur-toggle{display:inline-flex;gap:6px;background:rgba(3,19,11,0.18);border-radius:999px;padding:5px}
+.cur-toggle button{font-family:var(--body);font-weight:600;font-size:12.5px;border:0;cursor:pointer;border-radius:999px;padding:6px 14px;background:transparent;color:rgba(3,19,11,0.65);transition:background-color 0.15s ease,color 0.15s ease}
+.cur-toggle button.on{background:#0C0E0C;color:var(--ink)}
+.cur-toggle button:focus-visible{outline:2px solid #0C0E0C;outline-offset:2px}
+.cur-note{font-family:var(--mono);font-size:11px;color:rgba(3,19,11,0.6);margin-top:10px}
+.days{list-style:none;margin-top:34px;display:grid;gap:0}
+.days li{display:flex;gap:14px;align-items:baseline;padding:11px 0;border-top:1px solid rgba(3,19,11,0.14);font-size:14px;color:rgba(3,19,11,0.85)}
+.days li:last-child{border-bottom:1px solid rgba(3,19,11,0.14)}
+.days .d{font-family:var(--mono);font-size:11px;letter-spacing:0.06em;color:#053018;flex:none;width:84px;font-weight:700}
+.days b{font-weight:600;color:#03130B}
+
+/* ---------- faq ---------- */
+.faq{max-width:720px;margin:0 auto}
+details{background:var(--panel);border-radius:14px;margin-bottom:12px;overflow:hidden}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 26px;font-weight:500;font-size:15.5px}
+summary::-webkit-details-marker{display:none}
+summary .pm{flex:none;width:22px;height:22px;border-radius:50%;border:1px solid var(--line-2);display:grid;place-items:center;color:var(--muted);font-size:14px;transition:transform 0.2s ease}
+details[open] .pm{transform:rotate(45deg);color:var(--green);border-color:var(--green)}
+details .a{padding:0 26px 22px;color:var(--muted);font-size:14.5px;max-width:60ch}
+
+/* ---------- final + footer ---------- */
+.final{text-align:center;padding:150px 24px 130px}
+.final h2{font-size:clamp(34px,4.4vw,54px);max-width:700px;margin:0 auto}
+.final p{color:var(--muted);margin:22px auto 0;max-width:460px}
+.final .btn{margin-top:36px}
+footer{border-top:1px solid var(--line);padding:44px 0}
+.foot{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.foot .brand{display:flex;align-items:center;gap:9px}
+.foot .mark{height:22px;width:auto;display:block}
+.foot b{font-family:var(--disp);font-weight:700;font-size:13.5px}
+.foot b em{font-style:normal;color:var(--green)}
+.foot .links{display:flex;gap:26px;font-size:13px;color:var(--dim)}
+.foot .links a:hover{color:var(--ink)}
+.foot .fine{font-family:var(--mono);font-size:11px;color:var(--dim)}
+
+/* motion is driven by GSAP (scripts at end of body); reduced-motion users get a static page */
+
+/* ---------- responsive ---------- */
+@media (max-width:960px){
+  .plate-grid{grid-template-columns:1fr}
+  .layers-grid{grid-template-columns:1fr 1fr}
+  .auto-grid{grid-template-columns:1fr 1fr}
+  .panel,.panel.flip{grid-template-columns:1fr}
+  .panel.flip .p-copy{order:1}.panel.flip .p-visual{order:2}
+  .grid2{grid-template-columns:1fr}
+  .proof{grid-template-columns:1fr}
+  .price-plate{grid-template-columns:1fr}
+  .nav a.item{display:none}
+  section{padding:100px 0}
+}
+@media (max-width:520px){
+  .hero{padding-top:140px}
+  .layers-grid,.auto-grid{grid-template-columns:1fr}
+  .fcard .art img{height:210px}
+}
 </style>
 </head>
 <body>
-  <div>
-    <h1>ANCO <span>AI</span></h1>
-    <p>Ops. Automation. Scale.</p>
+
+<nav class="nav" aria-label="Main">
+  <a class="brand" href="#top"><img class="mark" src="assets/anco-logo.png" alt=""><b>ANCO <em>AI</em></b></a>
+  <a class="item" href="#layers">How it works</a>
+  <a class="item" href="#pricing">Pricing</a>
+  <a class="item" href="#faq">FAQ</a>
+  <a class="cta" href="https://ancoai.com/contact">Book a call</a>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="top">
+  <div class="hero-bg" aria-hidden="true">
+    <video autoplay muted loop playsinline preload="metadata" poster="assets/hero-poster.jpg"><source src="assets/hero-ambient.mp4?v=2" type="video/mp4"></video>
+    <div class="hero-veil"></div>
   </div>
+  <img class="app-mark" src="assets/anco-logo.png" alt="Anco AI">
+  <h1>You built a business,<br>but it can't run <span class="accent">without you.</span></h1>
+  <p class="sub">AIOS is an AI operating system that runs it for you. It sees your numbers daily, briefs you every morning, automates the manual work away, and gives you <b style="color:var(--ink);font-weight:500">10+ hours of your week back</b>.</p>
+  <div class="chips" aria-label="Connects to the systems you already run">
+    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="#635BFF" aria-hidden="true"><path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0 9.667 0 7.589.654 6.104 1.872 4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219 2.585.92 3.445 1.574 3.445 2.583 0 .98-.84 1.545-2.354 1.545-1.875 0-4.965-.921-6.99-2.109l-.9 5.555C5.175 22.99 8.385 24 11.714 24c2.641 0 4.843-.624 6.328-1.813 1.664-1.305 2.525-3.236 2.525-5.732 0-4.128-2.524-5.851-6.594-7.305h.003z"/></svg>Stripe</span>
+    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="#13B5EA" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm6.585 14.655c-1.485 0-2.69-1.206-2.69-2.689 0-1.485 1.207-2.691 2.69-2.691 1.485 0 2.69 1.207 2.69 2.691s-1.207 2.689-2.69 2.689zM7.53 14.644c-.099 0-.192-.041-.267-.116l-2.043-2.04-2.052 2.047c-.069.068-.16.108-.258.108-.202 0-.368-.166-.368-.368 0-.099.04-.191.111-.263l2.04-2.05-2.038-2.047c-.075-.069-.113-.162-.113-.261 0-.203.166-.366.368-.366.098 0 .188.037.258.105l2.055 2.048 2.048-2.045c.069-.071.162-.108.26-.108.211 0 .375.165.375.366 0 .098-.029.188-.104.258l-2.056 2.055 2.055 2.051c.068.069.104.16.104.258 0 .202-.165.368-.365.368h-.01zm8.017-4.591c-.796.101-.882.476-.882 1.404v2.787c0 .202-.165.366-.366.366-.203 0-.367-.165-.368-.366v-4.53c0-.204.16-.366.362-.366.166 0 .316.125.346.289.27-.209.6-.317.93-.317h.105c.195 0 .359.165.359.368 0 .201-.164.352-.375.359 0 0-.09 0-.164.008l.053-.002zm-3.091 2.205H8.625c0 .019.003.037.006.057.02.105.045.211.083.31.194.531.765 1.275 1.829 1.29.33-.003.631-.086.9-.229.21-.12.391-.271.525-.428.045-.058.09-.112.12-.168.18-.229.405-.186.54-.083.164.135.18.391.045.57l-.016.016c-.21.27-.435.495-.689.66-.255.164-.525.284-.811.345-.33.09-.645.104-.975.06-1.095-.135-2.01-.93-2.28-2.01-.06-.21-.09-.42-.09-.645 0-.855.421-1.695 1.125-2.205.885-.615 2.085-.66 3-.075.63.405 1.035 1.021 1.185 1.771.075.419-.21.794-.734.81l.068-.046zm6.129-2.223c-1.064 0-1.931.865-1.931 1.931 0 1.064.866 1.931 1.931 1.931s1.931-.867 1.931-1.931c0-1.065-.866-1.933-1.931-1.933v.002zm0 2.595c-.367 0-.666-.297-.666-.666 0-.367.3-.665.666-.665.367 0 .667.299.667.665 0 .369-.3.667-.667.666zm-8.04-2.603c-.91 0-1.672.623-1.886 1.466v.03h3.776c-.203-.855-.973-1.494-1.891-1.494v-.002z"/></svg>Xero</span>
+    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="#2CA01C" aria-hidden="true"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm.642 4.1335c.9554 0 1.7296.776 1.7296 1.7332v9.0667h1.6c1.614 0 2.9275-1.3156 2.9275-2.933 0-1.6173-1.3136-2.9333-2.9276-2.9333h-.6654V7.3334h.6654c2.5722 0 4.6577 2.0897 4.6577 4.667 0 2.5774-2.0855 4.6666-4.6577 4.6666H12.642zM7.9837 7.333h3.3291v12.533c-.9555 0-1.73-.7759-1.73-1.7332V9.0662H7.9837c-1.6146 0-2.9277 1.316-2.9277 2.9334 0 1.6175 1.3131 2.9333 2.9277 2.9333h.6654v1.7332h-.6654c-2.5725 0-4.6577-2.0892-4.6577-4.6665 0-2.5771 2.0852-4.6666 4.6577-4.6666Z"/></svg>QuickBooks</span>
+    <span><i></i>HighLevel</span>
+    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="#FB6970" aria-hidden="true"><path d="m3.5 11.633-2.434 2.408V8.687a.53.53 0 0 0-.533-.527.53.53 0 0 0-.533.527v6.624a.528.528 0 0 0 .532.526.533.533 0 0 0 .377-.153l2.974-2.939 2.974 2.94a.535.535 0 0 0 .754 0 .522.522 0 0 0 0-.746l-2.974-2.938L7.61 9.06a.522.522 0 0 0 0-.745.538.538 0 0 0-.753 0l-3.344 3.307c-.003 0-.005.003-.007.005l-.007.006v-.001zm8.826 4.206a.53.53 0 0 1-.533-.526V8.688a.53.53 0 0 1 .533-.528.53.53 0 0 1 .533.528v6.624a.53.53 0 0 1-.533.526v.001zm7.257-6.624v6.098c0 .29.238.526.532.526a.53.53 0 0 0 .533-.526V9.215h2.818A.53.53 0 0 0 24 8.688a.53.53 0 0 0-.533-.527h-6.702a.53.53 0 0 0-.533.527.53.53 0 0 0 .533.527h2.819-.001z"/></svg>Kit</span>
+    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="#FFE01B" aria-hidden="true"><path d="M11.267 0C6.791-.015-1.82 10.246 1.397 12.964l.79.669a3.88 3.88 0 0 0-.22 1.792c.084.84.518 1.644 1.22 2.266.666.59 1.542.964 2.392.964 1.406 3.24 4.62 5.228 8.386 5.34 4.04.12 7.433-1.776 8.854-5.182.093-.24.488-1.316.488-2.267 0-.956-.54-1.352-.885-1.352-.01-.037-.078-.286-.172-.586-.093-.3-.19-.51-.19-.51.375-.563.382-1.065.332-1.35-.053-.353-.2-.653-.496-.964-.296-.311-.902-.63-1.753-.868l-.446-.124c-.002-.019-.024-1.053-.043-1.497-.014-.32-.042-.822-.197-1.315-.186-.668-.508-1.253-.911-1.627 1.112-1.152 1.806-2.422 1.804-3.511-.003-2.095-2.576-2.729-5.746-1.416l-.672.285A678.22 678.22 0 0 0 12.7.504C12.304.159 11.817.002 11.267 0zm.073.873c.166 0 .322.019.465.058.297.084 1.28 1.224 1.28 1.224s-1.826 1.013-3.52 2.426c-2.28 1.757-4.005 4.311-5.037 7.082-.811.158-1.526.618-1.963 1.253-.261-.218-.748-.64-.834-.804-.698-1.326.761-3.902 1.781-5.357C5.834 3.44 9.37.867 11.34.873zm3.286 3.273c.04-.002.06.05.028.074-.143.11-.299.26-.413.414a.04.04 0 0 0 .031.064c.659.004 1.587.235 2.192.574.041.023.012.103-.034.092-.915-.21-2.414-.369-3.97.01-1.39.34-2.45.863-3.224 1.426-.04.028-.086-.023-.055-.06.896-1.035 1.999-1.935 2.987-2.44.034-.018.07.019.052.052-.079.143-.23.447-.278.678-.007.035.032.063.062.042.615-.42 1.684-.868 2.622-.926zm3.023 3.205l.056.001a.896.896 0 0 1 .456.146c.534.355.61 1.216.638 1.845.015.36.059 1.229.074 1.478.034.571.184.651.487.751.17.057.33.098.563.164.706.198 1.125.4 1.39.658.157.162.23.333.253.497.083.608-.472 1.36-1.942 2.041-1.607.746-3.557.935-4.904.785l-.471-.053c-1.078-.145-1.693 1.247-1.046 2.201.417.615 1.552 1.015 2.688 1.015 2.604 0 4.605-1.111 5.35-2.072a.987.987 0 0 0 .06-.085c.036-.055.006-.085-.04-.054-.608.416-3.31 2.069-6.2 1.571 0 0-.351-.057-.672-.182-.255-.1-.788-.344-.853-.891 2.333.72 3.801.039 3.801.039a.072.072 0 0 0 .042-.072.067.067 0 0 0-.074-.06s-1.911.283-3.718-.378c.197-.64.72-.408 1.51-.345a11.045 11.045 0 0 0 3.647-.394c.818-.234 1.892-.697 2.727-1.356.281.618.38 1.299.38 1.299s.219-.04.4.073c.173.106.299.326.213.895-.176 1.063-.628 1.926-1.387 2.72a5.714 5.714 0 0 1-1.666 1.244c-.34.18-.704.334-1.087.46-2.863.935-5.794-.093-6.739-2.3a3.545 3.545 0 0 1-.189-.522c-.403-1.455-.06-3.2 1.008-4.299.065-.07.132-.153.132-.256 0-.087-.055-.179-.102-.243-.374-.543-1.669-1.466-1.409-3.254.187-1.284 1.31-2.189 2.357-2.135.089.004.177.01.266.015.453.027.85.085 1.223.1.625.028 1.187-.063 1.853-.618.225-.187.405-.35.71-.401.028-.005.092-.028.215-.028zm.022 2.18a.42.42 0 0 0-.06.005c-.335.054-.347.468-.228 1.04.068.32.187.595.32.765.175-.02.343-.022.498 0 .089-.205.104-.557.024-.942-.112-.535-.261-.872-.554-.868zm-3.66 1.546a1.724 1.724 0 0 0-1.016.326c-.16.117-.311.28-.29.378.008.032.031.056.088.063.131.015.592-.217 1.122-.25.374-.023.684.094.923.2.239.104.386.173.443.113.037-.038.026-.11-.031-.204-.118-.192-.36-.387-.618-.497a1.601 1.601 0 0 0-.621-.129zm4.082.81c-.171-.003-.313.186-.317.42-.004.236.131.43.303.432.172.003.314-.185.318-.42.004-.236-.132-.429-.304-.432zm-3.58.172c-.05 0-.102.002-.155.008-.311.05-.483.152-.593.247-.094.082-.152.173-.152.237a.075.075 0 0 0 .075.076c.07 0 .228-.063.228-.063a1.98 1.98 0 0 1 1.001-.104c.157.018.23.027.265-.026.01-.016.022-.049-.01-.1-.063-.103-.311-.269-.66-.275zm2.26.4c-.127 0-.235.051-.283.148-.075.154.035.363.246.466.21.104.443.063.52-.09.075-.155-.035-.364-.246-.467a.542.542 0 0 0-.237-.058zm-11.635.024c.048 0 .098 0 .149.003.73.04 1.806.6 2.052 2.19.217 1.41-.128 2.843-1.449 3.069-.123.02-.248.029-.374.026-1.22-.033-2.539-1.132-2.67-2.435-.145-1.44.591-2.548 1.894-2.811.117-.024.252-.04.398-.042zm-.07.927a1.144 1.144 0 0 0-.847.364c-.38.418-.439.988-.366 1.19.027.073.07.094.1.098.064.008.16-.039.22-.2a1.2 1.2 0 0 0 .017-.052 1.58 1.58 0 0 1 .157-.37.689.689 0 0 1 .955-.199c.266.174.369.5.255.81-.058.161-.154.469-.133.721.043.511.357.717.64.738.274.01.466-.143.515-.256.029-.067.005-.107-.011-.125-.043-.053-.113-.037-.18-.021a.638.638 0 0 1-.16.022.347.347 0 0 1-.294-.148c-.078-.12-.073-.3.013-.504.011-.028.025-.058.04-.092.138-.308.368-.825.11-1.317-.195-.37-.513-.602-.894-.65a1.135 1.135 0 0 0-.138-.01z"/></svg>Mailchimp</span>
+    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="#EA4335" aria-hidden="true"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>Gmail</span>
+    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="#E4405F" aria-hidden="true"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg>Instagram</span>
+    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="#0866FF" aria-hidden="true"><path d="M6.915 4.03c-1.968 0-3.683 1.28-4.871 3.113C.704 9.208 0 11.883 0 14.449c0 .706.07 1.369.21 1.973a6.624 6.624 0 0 0 .265.86 5.297 5.297 0 0 0 .371.761c.696 1.159 1.818 1.927 3.593 1.927 1.497 0 2.633-.671 3.965-2.444.76-1.012 1.144-1.626 2.663-4.32l.756-1.339.186-.325c.061.1.121.196.183.3l2.152 3.595c.724 1.21 1.665 2.556 2.47 3.314 1.046.987 1.992 1.22 3.06 1.22 1.075 0 1.876-.355 2.455-.843a3.743 3.743 0 0 0 .81-.973c.542-.939.861-2.127.861-3.745 0-2.72-.681-5.357-2.084-7.45-1.282-1.912-2.957-2.93-4.716-2.93-1.047 0-2.088.467-3.053 1.308-.652.57-1.257 1.29-1.82 2.05-.69-.875-1.335-1.547-1.958-2.056-1.182-.966-2.315-1.303-3.454-1.303zm10.16 2.053c1.147 0 2.188.758 2.992 1.999 1.132 1.748 1.647 4.195 1.647 6.4 0 1.548-.368 2.9-1.839 2.9-.58 0-1.027-.23-1.664-1.004-.496-.601-1.343-1.878-2.832-4.358l-.617-1.028a44.908 44.908 0 0 0-1.255-1.98c.07-.109.141-.224.211-.327 1.12-1.667 2.118-2.602 3.358-2.602zm-10.201.553c1.265 0 2.058.791 2.675 1.446.307.327.737.871 1.234 1.579l-1.02 1.566c-.757 1.163-1.882 3.017-2.837 4.338-1.191 1.649-1.81 1.817-2.486 1.817-.524 0-1.038-.237-1.383-.794-.263-.426-.464-1.13-.464-2.046 0-2.221.63-4.535 1.66-6.088.454-.687.964-1.226 1.533-1.533a2.264 2.264 0 0 1 1.088-.285z"/></svg>Facebook Ads</span>
+    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="#E37400" aria-hidden="true"><path d="M22.84 2.9982v17.9987c.0086 1.6473-1.3197 2.9897-2.967 2.9984a2.9808 2.9808 0 01-.3677-.0208c-1.528-.226-2.6477-1.5558-2.6105-3.1V3.1204c-.0369-1.5458 1.0856-2.8762 2.6157-3.1 1.6361-.1915 3.1178.9796 3.3093 2.6158.014.1201.0208.241.0202.3619zM4.1326 18.0548c-1.6417 0-2.9726 1.331-2.9726 2.9726C1.16 22.6691 2.4909 24 4.1326 24s2.9726-1.3309 2.9726-2.9726-1.331-2.9726-2.9726-2.9726zm7.8728-9.0098c-.0171 0-.0342 0-.0513.0003-1.6495.0904-2.9293 1.474-2.891 3.1256v7.9846c0 2.167.9535 3.4825 2.3505 3.763 1.6118.3266 3.1832-.7152 3.5098-2.327.04-.1974.06-.3983.0593-.5998v-8.9585c.003-1.6474-1.33-2.9852-2.9773-2.9882z"/></svg>Google Analytics</span>
+    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="#FF0000" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>YouTube</span>
+    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="#E01E5A" aria-hidden="true"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>Slack</span>
+    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="#4D8CFF" aria-hidden="true"><path d="M5.033 14.649H.743a.74.74 0 0 1-.686-.458.74.74 0 0 1 .16-.808L3.19 10.41H1.06A1.06 1.06 0 0 1 0 9.35h3.957c.301 0 .57.18.686.458a.74.74 0 0 1-.161.808L1.51 13.59h2.464c.585 0 1.06.475 1.06 1.06zM24 11.338c0-1.14-.927-2.066-2.066-2.066-.61 0-1.158.265-1.537.686a2.061 2.061 0 0 0-1.536-.686c-1.14 0-2.066.926-2.066 2.066v3.311a1.06 1.06 0 0 0 1.06-1.06v-2.251a1.004 1.004 0 0 1 2.013 0v2.251c0 .586.474 1.06 1.06 1.06v-3.311a1.004 1.004 0 0 1 2.012 0v2.251c0 .586.475 1.06 1.06 1.06zM16.265 12a2.728 2.728 0 1 1-5.457 0 2.728 2.728 0 0 1 5.457 0zm-1.06 0a1.669 1.669 0 1 0-3.338 0 1.669 1.669 0 0 0 3.338 0zm-4.82 0a2.728 2.728 0 1 1-5.458 0 2.728 2.728 0 0 1 5.457 0zm-1.06 0a1.669 1.669 0 1 0-3.338 0 1.669 1.669 0 0 0 3.338 0z"/></svg>Zoom</span>
+    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="#00AC47" aria-hidden="true"><path d="M5.53 2.13 0 7.75h5.53zm.398 0v5.62h7.608v3.65l5.47-4.45c-.014-1.22.031-2.25-.025-3.46-.148-1.09-1.287-1.47-2.236-1.36zM23.1 4.32c-.802.295-1.358.995-2.047 1.49-2.506 2.05-4.982 4.12-7.468 6.19 3.025 2.59 6.04 5.18 9.065 7.76 1.218.671 1.428-.814 1.328-1.64v-13a.828.828 0 0 0-.877-.825zM.038 8.15v7.7h5.53v-7.7zm13.577 8.1H6.008v5.62c3.864-.006 7.737.011 11.58-.009 1.02-.07 1.618-1.12 1.468-2.07v-2.51l-5.47-4.68v3.65zm-13.577 0c.02 1.44-.041 2.88.033 4.31.162.948 1.158 1.43 2.047 1.31h3.464v-5.62z"/></svg>Google Meet</span>
+    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="#4285F4" aria-hidden="true"><path d="M18.316 5.684H24v12.632h-5.684V5.684zM5.684 24h12.632v-5.684H5.684V24zM18.316 5.684V0H1.895A1.894 1.894 0 0 0 0 1.895v16.421h5.684V5.684h12.632zm-7.207 6.25v-.065c.272-.144.5-.349.687-.617s.279-.595.279-.982c0-.379-.099-.72-.3-1.025a2.05 2.05 0 0 0-.832-.714 2.703 2.703 0 0 0-1.197-.257c-.6 0-1.094.156-1.481.467-.386.311-.65.671-.793 1.078l1.085.452c.086-.249.224-.461.413-.633.189-.172.445-.257.767-.257.33 0 .602.088.816.264a.86.86 0 0 1 .322.703c0 .33-.12.589-.36.778-.24.19-.535.284-.886.284h-.567v1.085h.633c.407 0 .748.109 1.02.327.272.218.407.499.407.843 0 .336-.129.614-.387.832s-.565.327-.924.327c-.351 0-.651-.103-.897-.311-.248-.208-.422-.502-.521-.881l-1.096.452c.178.616.505 1.082.977 1.401.472.319.984.478 1.538.477a2.84 2.84 0 0 0 1.293-.291c.382-.193.684-.458.902-.794.218-.336.327-.72.327-1.149 0-.429-.115-.797-.344-1.105a2.067 2.067 0 0 0-.881-.689zm2.093-1.931l.602.913L15 10.045v5.744h1.187V8.446h-.827l-2.158 1.557zM22.105 0h-3.289v5.184H24V1.895A1.894 1.894 0 0 0 22.105 0zm-3.289 23.5l4.684-4.684h-4.684V23.5zM0 22.105C0 23.152.848 24 1.895 24h3.289v-5.184H0v3.289z"/></svg>Google Calendar</span>
+    <span class="more">+ whatever else you run</span>
+  </div>
+  <div><a class="btn primary" href="https://ancoai.com/contact">Book a call
+    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M2 7.5h10M8.5 3.5l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a></div>
+  <div class="fineprint">Live on your data in 14 days, or the install is refunded.</div>
+
+  <div class="plate">
+    <div class="plate-frame">You wake up. It is already done.</div>
+    <div class="plate-grid">
+      <div class="receipt">
+        <div class="r-head"><span class="r-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#19C977" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg> While you slept</span><span class="r-time">02:00 &ndash; 07:00</span></div>
+        <ul>
+          <li><span class="tick">&check;</span><span>Pulled fresh numbers from all 6 of your systems</span></li>
+          <li><span class="tick">&check;</span><span>Read 14 new emails, drafted the 2 that need you, in your voice</span></li>
+          <li><span class="tick">&check;</span><span>Raised 3 invoices from the accountant's query sheet</span></li>
+          <li><span class="tick">&check;</span><span>Flagged a competitor video doing 4&times; its usual views</span></li>
+          <li><span class="tick">&check;</span><span>Wrote your brief, ready for 7:00 sharp</span></li>
+        </ul>
+        <div class="r-foot">5 jobs done before your alarm went off. <b>None of them needed you.</b></div>
+      </div>
+      <div class="brief">
+        <div class="b-head">
+          <img class="b-mark" src="assets/anco-logo.png" alt="">
+          <div><div class="b-name">Your Daily Brief</div><div class="b-chan">#your-business &middot; Slack</div></div>
+          <div class="b-time">7:00 AM</div>
+        </div>
+        <ul>
+          <li><span class="ic"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><path d="M1.5 8.5l3-3 2.5 2 4.5-5" stroke="#19C977" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Revenue MTD <b>&pound;11,434</b> &middot; 46% to your &pound;25k target. Ahead of last month's pace.</span></li>
+          <li><span class="ic"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><rect x="1.5" y="2.5" width="10" height="9" rx="2" stroke="#19C977" stroke-width="1.4"/><path d="M1.5 5.5h10" stroke="#19C977" stroke-width="1.4"/></svg></span><span><b>3 meetings today.</b> Notes from yesterday's client call are summarised below.</span></li>
+          <li><span class="ic"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><rect x="1.5" y="2.5" width="10" height="8.5" rx="1.8" stroke="#19C977" stroke-width="1.4"/><path d="M2 3.5l4.5 3.6L11 3.5" stroke="#19C977" stroke-width="1.4" stroke-linecap="round"/></svg></span><span><b>2 emails need a reply.</b> Drafts are waiting in your voice. Review and send.</span></li>
+          <li><span class="ic"><svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><circle cx="6.5" cy="6.5" r="5" stroke="#19C977" stroke-width="1.4"/><path d="M6.5 3.8v3l2 1.4" stroke="#19C977" stroke-width="1.4" stroke-linecap="round"/></svg></span><span><b>1 proposal awaiting decision.</b> Board meets Thursday. Chase Friday if quiet.</span></li>
+        </ul>
+        <div class="b-foot">You have read your whole business in 60 seconds. <b>Now go build.</b></div>
+      </div>
+    </div>
+    <div class="plate-note">A real AIOS morning. Sample numbers shown.</div>
+  </div>
+</header>
+
+<!-- ================= THE FOUR LAYERS ================= -->
+<section id="layers">
+  <div class="wrap">
+    <div class="head">
+      <h2>Not a dashboard. An AI that runs your business.</h2>
+      <p>AIOS is built in four layers. Each one is useful on its own. Together, they're a system that understands everything about your business and works on it around the clock.</p>
+    </div>
+    <div class="layers-grid">
+      <div class="layer">
+        <div class="l-head"><span class="lnum">LAYER 01</span><svg class="a-ic" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#19C977" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="1" d="M12 3a9 9 0 0 0-9 9c0 2.4 1 4.6 2.5 6.2L12 21l6.5-2.8A9 9 0 0 0 12 3z"/><path pathLength="1" d="M12 8v5"/><path pathLength="1" d="M12 16.2v.1"/></svg></div>
+        <h3>Context</h3>
+        <p>It knows your business: who you are, who your audience is, what you sell, what you're trying to achieve and why. Every decision it makes starts from that.</p>
+      </div>
+      <div class="layer">
+        <div class="l-head"><span class="lnum">LAYER 02</span><svg class="a-ic" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#19C977" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="1" d="M4 5c0-1.7 3.6-3 8-3s8 1.3 8 3-3.6 3-8 3-8-1.3-8-3z"/><path pathLength="1" d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path pathLength="1" d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></div>
+        <h3>Data</h3>
+        <p>It sees everything: every system you run pulled in daily, from money and pipeline to content, traffic and email. It always knows exactly where you're up to.</p>
+      </div>
+      <div class="layer">
+        <div class="l-head"><span class="lnum">LAYER 03</span><svg class="a-ic" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#19C977" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="1" d="M12 2a7 7 0 0 0-4.2 12.6c.7.5 1.2 1.4 1.2 2.4h6c0-1 .5-1.9 1.2-2.4A7 7 0 0 0 12 2z"/><path pathLength="1" d="M9.5 20h5"/><path pathLength="1" d="M10.5 23h3"/></svg></div>
+        <h3>Intelligence</h3>
+        <p>It watches and thinks: briefs you every morning, analyses your calls, your emails, your messages, and answers any question from your real data.</p>
+      </div>
+      <div class="layer">
+        <div class="l-head"><span class="lnum">LAYER 04</span><svg class="a-ic" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#19C977" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="1" d="M13 2 3 14h7l-1 8 12-14h-7l-1-6z"/></svg></div>
+        <h3>Automate</h3>
+        <p>It does the work: the manual jobs that eat your week get automated away one by one, with a new one built every month.</p>
+      </div>
+    </div>
+
+    <article class="panel flip" style="margin-top:70px">
+      <div class="p-copy">
+        <h3>And when you want to look: the Live Business Dashboard</h3>
+        <p>Your AIOS works whether you're watching or not. But when you want eyes on the whole business, there's one login-gated place: revenue against target, profit, calls, leads, content, traffic and email, all live.</p>
+        <ul class="checks">
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7.2" stroke="#19C977" stroke-width="1.4"/><path d="M5 8.2l2 2 4-4.4" stroke="#19C977" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Every number from every system, one screen</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7.2" stroke="#19C977" stroke-width="1.4"/><path d="M5 8.2l2 2 4-4.4" stroke="#19C977" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Ask it anything in Slack, answered from live data</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7.2" stroke="#19C977" stroke-width="1.4"/><path d="M5 8.2l2 2 4-4.4" stroke="#19C977" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Your data stays yours, human-in-the-loop by default</li>
+        </ul>
+      </div>
+      <div class="p-visual">
+        <div class="shot"><img src="assets/dashboard-overview.png" alt="The Live Business Dashboard: revenue against a £25,000 target, profit, calls booked, leads, YouTube, traffic, ads and email in one dark cockpit" loading="lazy"></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ================= DATA & ANALYTICS ================= -->
+<section class="tight" id="data">
+  <div class="wrap">
+    <div class="head">
+      <h2>Know exactly what caused the spike</h2>
+      <p>When every number lives in one place, patterns appear. AIOS connects your sales and leads to the things you actually did: the video, the email, the webinar.</p>
+    </div>
+    <article class="panel">
+      <div class="p-copy">
+        <h3>Every number, one place, one brain</h3>
+        <p>Most businesses have the data. It's just scattered across ten tools, so nobody ever sees the whole picture. AIOS pulls it together daily, and then, crucially, an AI reads it. Not just charts to look at: causes found, trends flagged, and clear suggestions for what to do more of.</p>
+        <ul class="checks">
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7.2" stroke="#19C977" stroke-width="1.4"/><path d="M5 8.2l2 2 4-4.4" stroke="#19C977" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Revenue, leads, traffic and content, moving together on one timeline</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7.2" stroke="#19C977" stroke-width="1.4"/><path d="M5 8.2l2 2 4-4.4" stroke="#19C977" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Every spike traced to its cause: a video, an email, a webinar, a launch</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7.2" stroke="#19C977" stroke-width="1.4"/><path d="M5 8.2l2 2 4-4.4" stroke="#19C977" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Trends flagged weeks before you'd spot them in a spreadsheet</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7.2" stroke="#19C977" stroke-width="1.4"/><path d="M5 8.2l2 2 4-4.4" stroke="#19C977" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>"Do more of this" recommendations, not just dashboards to squint at</li>
+        </ul>
+      </div>
+      <div class="p-visual">
+        <div class="chartbox">
+          <div class="c-head"><span class="c-title">Leads per day</span><span class="c-range">last 30 days</span></div>
+          <svg viewBox="0 0 440 170" aria-label="Lead chart with a spike traced to an email and a video">
+            <line x1="0" y1="150" x2="440" y2="150" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+            <line x1="0" y1="100" x2="440" y2="100" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+            <line x1="0" y1="50" x2="440" y2="50" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+            <path class="chart-line" pathLength="1" d="M0 132 C 30 128, 50 136, 75 130 S 120 122, 145 126 S 190 118, 215 112 S 255 60, 285 34 S 320 52, 350 84 S 400 96, 440 90" fill="none" stroke="#19C977" stroke-width="2.4" stroke-linecap="round"/>
+            <line x1="285" y1="34" x2="285" y2="150" stroke="rgba(25,201,119,0.35)" stroke-width="1" stroke-dasharray="3 4"/>
+            <circle cx="285" cy="34" r="4.5" fill="#19C977"/>
+            <circle cx="285" cy="34" r="9" fill="none" stroke="rgba(25,201,119,0.4)" stroke-width="1.4"/>
+            <rect x="248" y="6" width="76" height="20" rx="10" fill="rgba(25,201,119,0.12)" stroke="rgba(25,201,119,0.4)" stroke-width="1"/>
+            <text x="286" y="20" text-anchor="middle" font-family="'Fragment Mono',monospace" font-size="11" fill="#19C977">3× leads</text>
+            <circle cx="215" cy="150" r="3.5" fill="#4D8CFF"/>
+            <circle cx="255" cy="150" r="3.5" fill="#FB6970"/>
+            <circle cx="285" cy="150" r="3.5" fill="#FFE01B"/>
+          </svg>
+          <div class="evt-row">
+            <span class="evt"><i style="background:#4D8CFF"></i>Webinar · 9 Jun</span>
+            <span class="evt"><i style="background:#FB6970"></i>Pricing video · 11 Jun</span>
+            <span class="evt"><i style="background:#FFE01B"></i>Email broadcast · 12 Jun</span>
+          </div>
+          <div class="insight">
+            <div class="i-tag">AIOS insight · this morning's brief</div>
+            <p>Leads ran at <b>3× your daily average</b> for 48 hours. The trigger wasn't one thing: the pricing video warmed them up, and Thursday's email converted them. <b>Recommendation:</b> repeat that pairing in the third week of every month.</p>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ================= AUTOMATIONS ================= -->
+<section class="tight" id="automations">
+  <div class="wrap">
+    <div class="head">
+      <h2>Then the manual work starts disappearing</h2>
+      <p>These are real automations, already built and running inside AIOS installs today. On AIOS Managed, a new one is built for your business every month.</p>
+    </div>
+    <div class="auto-grid">
+      <div class="acard"><div class="a-top"><svg class="a-ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#19C977" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="1" d="M22 13h-5l-2 3h-6l-2-3H2"/><path pathLength="1" d="M5.5 5.6 2 13v5a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5l-3.5-7.4A2 2 0 0 0 16.7 4H7.3a2 2 0 0 0-1.8 1.6z"/></svg><h4>Inbox triage &amp; drafted replies</h4></div><p>Your inbox read and ranked every morning; the emails that matter get replies drafted in your voice. Nothing sends without you.</p></div>
+      <div class="acard"><div class="a-top"><svg class="a-ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#19C977" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="1" d="M5 2v20l2-1.2L9 22l2-1.2L13 22l2-1.2L17 22l2-1.2V2l-2 1.2L15 2l-2 1.2L11 2 9 3.2 7 2 5 3.2"/><path pathLength="1" d="M9 8h6"/><path pathLength="1" d="M9 12h6"/><path pathLength="1" d="M9 16h4"/></svg><h4>Bookkeeping that does itself</h4></div><p>The accountant's query sheet read, invoices raised and coded correctly in Xero or QuickBooks, the sheet updated. You just approve.</p></div>
+      <div class="acard"><div class="a-top"><svg class="a-ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#19C977" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="1" d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path pathLength="1" d="M5 11a7 7 0 0 0 14 0"/><path pathLength="1" d="M12 18v4"/></svg><h4>Call analysis → content ideas</h4></div><p>Coaching and client calls transcribed and analysed. Recurring questions become content ideas, promises become follow-ups.</p></div>
+      <div class="acard"><div class="a-top"><svg class="a-ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#19C977" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="1" d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle pathLength="1" cx="12" cy="12" r="3"/></svg><h4>Competitor monitoring</h4></div><p>Rival YouTube channels watched daily. When a video breaks out, you're told, with an angle for your version.</p></div>
+      <div class="acard"><div class="a-top"><svg class="a-ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#19C977" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="1" d="M3 3v18h18"/><path pathLength="1" d="M7 15l4-5 3 3 5-7"/></svg><h4>Social analysis &amp; monitoring</h4></div><p>Your Instagram, YouTube and Facebook accounts monitored for performance: what's growing, what's flat, and why.</p></div>
+      <div class="acard"><div class="a-top"><svg class="a-ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#19C977" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="1" d="M3 11l14-6v14L3 13v-2z"/><path pathLength="1" d="M17 8a4 4 0 0 1 0 8"/><path pathLength="1" d="M6 13v5a2 2 0 0 0 4 0v-3"/></svg><h4>Meta ads reporting &amp; analysis</h4></div><p>Facebook and Instagram ad performance pulled daily: spend, results and ROAS reported and analysed, so wasted spend gets caught early.</p></div>
+      <div class="acard"><div class="a-top"><svg class="a-ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#19C977" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle pathLength="1" cx="12" cy="12" r="9"/><circle pathLength="1" cx="12" cy="12" r="5.5"/><circle pathLength="1" cx="12" cy="12" r="1.8"/></svg><h4>Google Ads reporting &amp; analysis</h4></div><p>Campaign cost, clicks and conversions monitored and reported: you always know which keywords pay and which just spend.</p></div>
+      <div class="acard"><div class="a-top"><svg class="a-ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#19C977" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="1" d="M12 20h9"/><path pathLength="1" d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg><h4>Scripts in your voice</h4></div><p>Give it a title, get a shootable script that sounds like you, built from a fingerprint of how you actually speak.</p></div>
+      <div class="acard"><div class="a-top"><svg class="a-ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#19C977" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="1" d="M3 5h18v14H3z"/><circle pathLength="1" cx="8.5" cy="9.5" r="1.5"/><path pathLength="1" d="M21 15l-5-5L5 19"/></svg><h4>Thumbnails with your face</h4></div><p>Premium cinematic thumbnails generated with your real likeness. Five concepts per video, pick the winner.</p></div>
+      <div class="acard"><div class="a-top"><svg class="a-ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#19C977" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="1" d="M2 5h20v14H2z"/><path pathLength="1" d="M7 5v14"/><path pathLength="1" d="M17 5v14"/><path pathLength="1" d="M2 10h5"/><path pathLength="1" d="M2 14h5"/><path pathLength="1" d="M17 10h5"/><path pathLength="1" d="M17 14h5"/></svg><h4>Reel editing</h4></div><p>Talking-head clips become captioned vertical reels; long videos get mined for their best reel-worthy moments.</p></div>
+      <div class="acard"><div class="a-top"><svg class="a-ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#19C977" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="1" d="M22 2 11 13"/><path pathLength="1" d="M22 2l-7 20-4-9-9-4 20-7z"/></svg><h4>Email broadcasts</h4></div><p>Newsletters written in your voice, grounded in what your audience actually responds to, delivered as ready-to-send drafts.</p></div>
+      <div class="acard"><div class="a-top"><svg class="a-ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#19C977" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle pathLength="1" cx="11" cy="11" r="7"/><path pathLength="1" d="M21 21l-4.3-4.3"/></svg><h4>Web research</h4></div><p>Deep multi-source research runs on competitors, markets and prospects, delivered back as a readable brief.</p></div>
+      <div class="acard"><div class="a-top"><svg class="a-ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#19C977" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="1" d="M3 3h18v12H3z"/><path pathLength="1" d="M12 15v4"/><path pathLength="1" d="M8 21h8"/><path pathLength="1" d="M7 11V8"/><path pathLength="1" d="M12 11V6"/><path pathLength="1" d="M17 11V9"/></svg><h4>Client &amp; board reporting</h4></div><p>Reports assembled from live data on schedule. No more copy-pasting numbers into slides.</p></div>
+      <div class="acard"><div class="a-top"><svg class="a-ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#19C977" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="1" d="M4 4h4v16H4z"/><path pathLength="1" d="M10 4h4v10h-4z"/><path pathLength="1" d="M16 4h4v7h-4z"/></svg><h4>Content pipeline</h4></div><p>Ideas captured from your calls and your audience, developed into full concepts, and planned onto a calendar. It never runs dry.</p></div>
+      <div class="acard"><div class="a-top"><svg class="a-ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#19C977" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="1" d="M6 2h9l5 5v15H6z"/><path pathLength="1" d="M15 2v5h5"/><path pathLength="1" d="M9.5 14.5l2 2 3.5-4"/></svg><h4>Proposal drafting</h4></div><p>A discovery call becomes a scoped proposal in your format, with deliverables, timeline and pricing, ready to review and send.</p></div>
+      <div class="acard"><div class="a-top"><svg class="a-ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#19C977" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path pathLength="1" d="M4 4h16v16H4z"/><circle pathLength="1" cx="12" cy="10" r="2.6"/><path pathLength="1" d="M7 20c0-3 2.2-4.6 5-4.6s5 1.6 5 4.6"/></svg><h4>Article images in your likeness</h4></div><p>Editorial photos of you in real settings for LinkedIn articles and posts. Your actual face, never stock, never the AI look.</p></div>
+      <div class="acard slot"><div class="a-top"><svg class="a-ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#19C977" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle pathLength="1" cx="12" cy="12" r="9"/><path pathLength="1" d="M12 8v8"/><path pathLength="1" d="M8 12h8"/></svg><h4>+ whatever your audit surfaces</h4></div><p>Month one starts with a task audit: where do your hours actually go? The next automation is always the one worth the most.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WORKFLOWS ================= -->
+<section class="tight" id="workflows">
+  <div class="wrap">
+    <div class="head">
+      <h2>Not just tasks. Whole workflows.</h2>
+      <p>This is where the leverage is. AIOS chains automations into end-to-end workflows, so a whole job runs itself and lands on your desk finished.</p>
+    </div>
+    <div class="seq-grid">
+    <article class="seq">
+      <div class="seq-head"><span class="seq-num">01</span><div><h3>Your content engine</h3><p>From an empty calendar to a ready-to-shoot video.</p></div></div>
+      <ul class="seq-steps"><span class="rail-fill"></span>
+        <li class="sstep"><span class="sdot"><svg viewBox="0 0 24 24" fill="none" stroke="#19C977" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.2-6 10-6 10 6 10 6-3.2 6-10 6-10-6-10-6z"/><circle cx="12" cy="12" r="2.6"/></svg></span><span class="slabel">Watch your competitors</span></li>
+        <li class="sstep"><span class="sdot"><svg viewBox="0 0 24 24" fill="none" stroke="#19C977" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.5 5.5L20 9.3l-4 3.9 1 5.8-5-2.9-5 2.9 1-5.8-4-3.9 5.5-.8z"/></svg></span><span class="slabel">Spot the outlier videos</span></li>
+        <li class="sstep"><span class="sdot"><svg viewBox="0 0 24 24" fill="none" stroke="#19C977" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v14H4z"/><circle cx="9" cy="10" r="1.6"/><path d="M20 15l-5-5L6 19"/></svg></span><span class="slabel">Package title + thumbnail</span></li>
+        <li class="sstep"><span class="sdot"><svg viewBox="0 0 24 24" fill="none" stroke="#19C977" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></span><span class="slabel">Write the script</span></li>
+        <li class="sstep out"><span class="sdot"><svg viewBox="0 0 24 24" fill="none" stroke="#19C977" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span><span class="slabel">Saved to your Drive</span></li>
+      </ul>
+    </article>
+    <article class="seq">
+      <div class="seq-head"><span class="seq-num">02</span><div><h3>Your sales-call coach</h3><p>Close more calls, and mine every one for content.</p></div></div>
+      <ul class="seq-steps"><span class="rail-fill"></span>
+        <li class="sstep"><span class="sdot"><svg viewBox="0 0 24 24" fill="none" stroke="#19C977" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v4"/></svg></span><span class="slabel">Transcribe every call</span></li>
+        <li class="sstep"><span class="sdot"><svg viewBox="0 0 24 24" fill="none" stroke="#19C977" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3.5 6h.01"/><path d="M3.5 12h.01"/><path d="M3.5 18h.01"/></svg></span><span class="slabel">Surface common objections</span></li>
+        <li class="sstep"><span class="sdot"><svg viewBox="0 0 24 24" fill="none" stroke="#19C977" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 14a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2z"/><path d="M8.5 9.5l2 2 3.5-4"/></svg></span><span class="slabel">Say this, not that</span></li>
+        <li class="sstep out"><span class="sdot"><svg viewBox="0 0 24 24" fill="none" stroke="#19C977" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h4v16H4z"/><path d="M10 4h4v11h-4z"/><path d="M16 4h4v7h-4z"/></svg></span><span class="slabel">Turn answers into content</span></li>
+      </ul>
+    </article>
+    <article class="seq">
+      <div class="seq-head"><span class="seq-num">03</span><div><h3>Your performance radar</h3><p>Every channel ranked, so you know what to make more of.</p></div></div>
+      <ul class="seq-steps"><span class="rail-fill"></span>
+        <li class="sstep"><span class="sdot"><svg viewBox="0 0 24 24" fill="none" stroke="#19C977" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4v16h16"/><path d="M8 14l3-3 3 2 4-6"/></svg></span><span class="slabel">Pull Instagram, YouTube + email</span></li>
+        <li class="sstep"><span class="sdot"><svg viewBox="0 0 24 24" fill="none" stroke="#19C977" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 20V12"/><path d="M12 20V6"/><path d="M18 20v-5"/></svg></span><span class="slabel">Rank by real performance</span></li>
+        <li class="sstep out"><span class="sdot"><svg viewBox="0 0 24 24" fill="none" stroke="#19C977" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4h10v4a5 5 0 0 1-10 0V4z"/><path d="M7 6H4v1a3 3 0 0 0 3 3"/><path d="M17 6h3v1a3 3 0 0 1-3 3"/><path d="M9 20h6"/><path d="M12 13v7"/></svg></span><span class="slabel">Tells you what is winning</span></li>
+      </ul>
+    </article>
+    <article class="seq">
+      <div class="seq-head"><span class="seq-num">04</span><div><h3>Your email intelligence</h3><p>Every send teaches the next, so open rates climb on their own.</p></div></div>
+      <ul class="seq-steps"><span class="rail-fill"></span>
+        <li class="sstep"><span class="sdot"><svg viewBox="0 0 24 24" fill="none" stroke="#19C977" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v14H4z"/><path d="M4 6l8 6 8-6"/></svg></span><span class="slabel">Track opens + clicks</span></li>
+        <li class="sstep"><span class="sdot"><svg viewBox="0 0 24 24" fill="none" stroke="#19C977" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 16l5-5 3 3 7-8"/><path d="M18 6h4v4"/></svg></span><span class="slabel">Spot the winners</span></li>
+        <li class="sstep out"><span class="sdot"><svg viewBox="0 0 24 24" fill="none" stroke="#19C977" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></span><span class="slabel">Repeat what converts</span></li>
+      </ul>
+    </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROOF ================= -->
+<section class="tight" id="proof">
+  <div class="wrap">
+    <div class="head">
+      <h2>Built on itself, proven in real businesses</h2>
+      <p>AIOS runs Anco AI every day, and it's already installed inside client businesses.</p>
+    </div>
+    <div class="proof">
+      <div class="pcard">
+        <div class="q">“We run Anco AI itself on AIOS. The dashboard above is our real cockpit, the 7am brief runs our mornings, the books do themselves. We sell what we use every single day.”</div>
+        <div class="who"><b>Anco AI</b>The system you're looking at</div>
+      </div>
+      <div class="pcard">
+        <div class="q">“A US coaching business had revenue in Stripe, students in a portal, and no single picture of either. Their AIOS now briefs the founder daily and gave him his Mondays back.”</div>
+        <div class="who"><b>Coaching business, US</b>Foundation install, 2026</div>
+      </div>
+      <div class="pcard">
+        <div class="q">“An established advisory firm wanted content and client comms handled without hiring. Their AIOS drafts both in the founder's voice. The business speaks even when he doesn't type.”</div>
+        <div class="who"><b>Advisory firm, UK</b>Partner engagement, 2026</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ROI ================= -->
+<section class="tight" id="roi">
+  <div class="wrap">
+    <div class="head">
+      <h2>What is your time actually worth?</h2>
+      <p>AIOS gives you back 10+ hours a week. Drag the sliders and see what that is worth to you.</p>
+    </div>
+    <div class="roi-card">
+      <div class="roi-controls">
+        <div class="roi-ctl">
+          <div class="roi-ctl-top"><span>Your time is worth</span><output id="roi-rate-out">$100</output></div>
+          <input type="range" class="roi-slider" id="roi-rate" min="25" max="350" step="5" value="100" aria-label="Your hourly value">
+          <div class="roi-ctl-sub">per hour</div>
+        </div>
+        <div class="roi-ctl">
+          <div class="roi-ctl-top"><span>Hours AIOS gives back</span><output id="roi-hrs-out">10</output></div>
+          <input type="range" class="roi-slider" id="roi-hrs" min="5" max="25" step="1" value="10" aria-label="Hours saved per week">
+          <div class="roi-ctl-sub">per week</div>
+        </div>
+      </div>
+      <div class="roi-result">
+        <div class="roi-big"><span id="roi-monthly">£4,330</span></div>
+        <div class="roi-big-sub">of your time, back in your pocket every month</div>
+        <div class="roi-yr-label">The monthly maths</div>
+        <div class="roi-bars">
+          <div class="roi-bar"><span class="rb-lbl">You pay</span><div class="rb-track"><i id="roi-paybar" style="width:23%"></i></div><span class="rb-amt" id="roi-fee">£995</span></div>
+          <div class="roi-bar val"><span class="rb-lbl">You get back</span><div class="rb-track"><i style="width:100%"></i></div><span class="rb-amt" id="roi-recover">£4,330</span></div>
+        </div>
+        <div class="roi-verdict" id="roi-verdict"><b>4.4&times;</b> your money back, every single month.</div>
+        <div class="roi-payback" id="roi-payback">And the one-time <b>£4,995</b> build pays for itself in about <b>5 weeks</b>.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRICING ================= -->
+<section id="pricing">
+  <div class="wrap">
+    <div class="price-plate">
+      <div>
+        <h2>Two numbers. One decision.</h2>
+        <p class="lead-p">No tiers, no add-on menus, no 12-month handcuffs. An install, and a monthly that earns its place every month. Less than half a junior ops hire, and it never sleeps.</p>
+        <div class="guarantee">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1.5l5.5 2v4c0 3.4-2.3 5.9-5.5 7-3.2-1.1-5.5-3.6-5.5-7v-4L8 1.5z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M5.6 8l1.7 1.7 3-3.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Live on your data in 14 days, or the install is refunded
+        </div>
+        <ul class="days">
+          <li><span class="d">DAY 0</span><span><b>Kickoff call.</b> We map your systems, goals and time leaks.</span></li>
+          <li><span class="d">DAYS 1–13</span><span><b>The install.</b> Built with you, on your real data.</span></li>
+          <li><span class="d">DAY 14</span><span><b>Live.</b> Brief, bot and dashboard running, or you're refunded.</span></li>
+          <li><span class="d">DAY 30</span><span><b>First monthly automation ships.</b> The compounding starts.</span></li>
+        </ul>
+      </div>
+      <div class="pcards">
+        <div class="pc">
+          <div class="tag">Step 1 · The install</div>
+          <div class="row"><span class="name">AIOS Foundation</span><span class="amount"><span data-price="install">£4,995</span> <small>one-time</small></span></div>
+          <ul>
+            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="#19C977" stroke-width="1.4"/><path d="M5 8.2l2 2 4-4.4" stroke="#19C977" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Context layer: an AI that knows your business</li>
+            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="#19C977" stroke-width="1.4"/><path d="M5 8.2l2 2 4-4.4" stroke="#19C977" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Every system you run, pulled daily</li>
+            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="#19C977" stroke-width="1.4"/><path d="M5 8.2l2 2 4-4.4" stroke="#19C977" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>7am Daily Brief + ask-anything bot + Live Business Dashboard</li>
+            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="#19C977" stroke-width="1.4"/><path d="M5 8.2l2 2 4-4.4" stroke="#19C977" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>First automation included</li>
+          </ul>
+        </div>
+        <div class="pc">
+          <div class="tag">Step 2 · Run &amp; grow</div>
+          <div class="row"><span class="name">AIOS Managed</span><span class="amount"><span data-price="monthly">£995</span><small>/month</small></span></div>
+          <div class="meta">Rolling monthly · cancel anytime</div>
+          <ul>
+            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="#19C977" stroke-width="1.4"/><path d="M5 8.2l2 2 4-4.4" stroke="#19C977" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Hosted, monitored and upgraded by Anco, daily</li>
+            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="#19C977" stroke-width="1.4"/><path d="M5 8.2l2 2 4-4.4" stroke="#19C977" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>A new automation built for you every month</li>
+            <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="7" stroke="#19C977" stroke-width="1.4"/><path d="M5 8.2l2 2 4-4.4" stroke="#19C977" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Your data stays yours; nothing sends or spends without you</li>
+          </ul>
+        </div>
+      </div>
+      <div class="price-cta">
+        <a class="btn" href="https://ancoai.com/contact">See your AIOS before you decide
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M2 7.5h10M8.5 3.5l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="tight" id="faq">
+  <div class="wrap">
+    <div class="head">
+      <h2>Frequently asked questions</h2>
+    </div>
+    <div class="faq">
+      <details>
+        <summary>Isn't this just ChatGPT?<span class="pm">+</span></summary>
+        <div class="a">No. ChatGPT waits for you to ask. AIOS watches your business and comes to you, with your real numbers, every morning, and does the work. It's a system installed on your data, not a chat window.</div>
+      </details>
+      <details>
+        <summary>Couldn't I build this myself?<span class="pm">+</span></summary>
+        <div class="a">You could, over months, if you were technical and had the time. That's the trap AIOS gets you out of. We install it in 14 days and run it for you.</div>
+      </details>
+      <details>
+        <summary>Why is there a monthly fee?<span class="pm">+</span></summary>
+        <div class="a">Because it's a living system on your live data: hosted, maintained and upgraded, with a new automation shipped every month. It's an ops hire that costs a fraction of one and never sleeps.</div>
+      </details>
+      <details>
+        <summary>What if it doesn't work for us?<span class="pm">+</span></summary>
+        <div class="a">If AIOS isn't live on your data within 14 days, the install is refunded. And the monthly rolls; cancel anytime. The risk sits with us, which is why we're careful about who we take on.</div>
+      </details>
+      <details>
+        <summary>Is my data safe?<span class="pm">+</span></summary>
+        <div class="a">Your data stays yours, on infrastructure dedicated to your business. Human-in-the-loop is the default: nothing sends, spends or deletes without your approval. Dashboards sit behind login walls; nothing is public.</div>
+      </details>
+      <details>
+        <summary>Who is this for?<span class="pm">+</span></summary>
+        <div class="a">Established service businesses, typically £500k–£3M revenue with a team of 5–25, where the founder is the bottleneck and the tools don't talk. If that's you, book a call.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL ================= -->
+<div class="final">
+  <h2>See your AIOS before you spend a penny</h2>
+  <p>Book a call and we'll map your business, your tools, your numbers and your time leaks into a picture of your own AI Operating System.</p>
+  <div><a class="btn primary" href="https://ancoai.com/contact">Book a call
+    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M2 7.5h10M8.5 3.5l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a></div>
+  <div class="fineprint">Live in 14 days or refunded · rolling monthly · your data stays yours</div>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <a class="brand" href="#top"><img class="mark" src="assets/anco-logo.png" alt=""><b>ANCO <em>AI</em></b></a>
+    <div class="links">
+      <a href="https://ancoai.com">ancoai.com</a>
+      <a href="https://www.youtube.com/@daverc">YouTube</a>
+      <a href="https://ancoai.com/contact">Contact</a>
+    </div>
+    <div class="fine">© 2026 Anco AI Ltd</div>
+  </div>
+</footer>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  "use strict";
+  if (!window.gsap || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.defaults({ ease: "power3.out", duration: 0.85 });
+
+  /* ---------- hero entrance: one orchestrated timeline ---------- */
+  var intro = gsap.timeline();
+  intro.from(".nav",            { y: -16, opacity: 0, duration: 0.6 }, 0.05)
+       .from(".hero .app-mark", { y: 18, opacity: 0, scale: 0.85 }, 0.12)
+       .from(".hero h1",        { y: 26, opacity: 0 }, 0.22)
+       .from(".hero .sub",      { y: 20, opacity: 0 }, 0.34)
+       .from(".hero .chips span", { y: 12, opacity: 0, duration: 0.5, stagger: 0.045 }, 0.44)
+       .from(".hero .btn",      { y: 14, opacity: 0, duration: 0.6 }, 0.62)
+       .from(".hero .fineprint",{ opacity: 0, duration: 0.6 }, 0.74)
+       .from(".plate",          { y: 60, opacity: 0, scale: 0.965, duration: 1.05, ease: "power4.out" }, 0.5);
+
+  /* the brief + receipt lines type themselves in after the plate lands */
+  intro.from(".plate .brief li, .plate .receipt li", { y: 12, opacity: 0, duration: 0.5, stagger: 0.08 }, 1.15);
+
+  /* subtle parallax on the dashboard screenshot */
+  gsap.fromTo(".panel .shot img", { yPercent: -3 }, {
+    yPercent: 3, ease: "none",
+    scrollTrigger: { trigger: ".panel", start: "top bottom", end: "bottom top", scrub: 0.6 }
+  });
+
+  /* ---------- scroll reveals: rise once, then settle ---------- */
+  function rise(targets, opts){
+    gsap.utils.toArray(targets).forEach(function(el){
+      gsap.from(el, Object.assign({
+        y: 30, opacity: 0,
+        scrollTrigger: { trigger: el, start: "top 84%", once: true }
+      }, opts || {}));
+    });
+  }
+  rise(".head", { y: 24 });
+  rise(".panel");
+
+  /* check-lists + brief lines stagger inside their panel */
+  gsap.utils.toArray(".panel").forEach(function(panel){
+    var items = panel.querySelectorAll(".checks li, .brief li");
+    if (!items.length) return;
+    gsap.from(items, {
+      y: 14, opacity: 0, duration: 0.55, stagger: 0.07,
+      scrollTrigger: { trigger: panel, start: "top 70%", once: true }
+    });
+  });
+
+  /* workflows: rail draws down each card, steps cascade in, outcome pops */
+  gsap.utils.toArray('.seq').forEach(function(card){
+    var tl = gsap.timeline({ scrollTrigger: { trigger: card, start: "top 82%", once: true } });
+    tl.from(card.querySelector('.seq-head'), { y: 14, opacity: 0, duration: 0.5, ease: "power3.out" })
+      .to(card.querySelector('.rail-fill'), { scaleY: 1, duration: 0.75, ease: "power2.inOut" }, 0.1)
+      .from(card.querySelectorAll('.sstep'), { x: -10, opacity: 0, duration: 0.42, stagger: 0.1, ease: "power3.out" }, 0.18)
+      .fromTo(card.querySelector('.sstep.out .sdot'), { scale: 1 }, { scale: 1.16, duration: 0.22, yoyo: true, repeat: 1, ease: "power2.inOut" }, ">-0.05");
+  });
+
+  /* layer, automation + proof cards stagger as groups */
+  [".layers-grid", ".auto-grid", ".proof"].forEach(function(sel){
+    var grid = document.querySelector(sel);
+    if (!grid) return;
+    gsap.from(grid.children, {
+      y: 34, opacity: 0, stagger: 0.12,
+      scrollTrigger: { trigger: grid, start: "top 82%", once: true }
+    });
+  });
+
+  /* layer icons draw themselves in */
+  gsap.from(".layer .a-ic [pathLength]", {
+    strokeDashoffset: 1, duration: 1.1, ease: "power2.inOut", stagger: 0.09,
+    scrollTrigger: { trigger: ".layers-grid", start: "top 82%", once: true }
+  });
+
+  /* the lead chart draws itself, then the insight lands */
+  gsap.set(".chart-line", { strokeDasharray: 1, strokeDashoffset: 1 });
+  gsap.to(".chart-line", {
+    strokeDashoffset: 0, duration: 1.6, ease: "power2.inOut",
+    scrollTrigger: { trigger: ".chartbox", start: "top 78%", once: true }
+  });
+  gsap.from(".chartbox .insight", {
+    y: 16, opacity: 0, duration: 0.7, delay: 1.2,
+    scrollTrigger: { trigger: ".chartbox", start: "top 78%", once: true }
+  });
+
+  /* automation icons draw themselves in */
+  gsap.from(".acard .a-ic [pathLength]", {
+    strokeDashoffset: 1, duration: 1.1, ease: "power2.inOut", stagger: 0.045,
+    scrollTrigger: { trigger: ".auto-grid", start: "top 82%", once: true }
+  });
+
+  /* pricing plate: rise + settle, then the two price cards */
+  gsap.from(".price-plate", {
+    y: 44, opacity: 0, scale: 0.98, duration: 1, ease: "power4.out",
+    scrollTrigger: { trigger: ".price-plate", start: "top 80%", once: true }
+  });
+  gsap.from(".pc", {
+    y: 26, opacity: 0, stagger: 0.14, duration: 0.7,
+    scrollTrigger: { trigger: ".pcards", start: "top 78%", once: true }
+  });
+
+  /* FAQ rows + final CTA */
+  gsap.from(".faq details", {
+    y: 18, opacity: 0, duration: 0.55, stagger: 0.06,
+    scrollTrigger: { trigger: ".faq", start: "top 82%", once: true }
+  });
+  gsap.from(".final > *", {
+    y: 24, opacity: 0, stagger: 0.1,
+    scrollTrigger: { trigger: ".final", start: "top 80%", once: true }
+  });
+
+  /* ambient loop: only run while the hero is visible */
+  var bgv = document.querySelector(".hero-bg video");
+  if (bgv && "IntersectionObserver" in window) {
+    new IntersectionObserver(function(en){
+      en[0].isIntersecting ? bgv.play().catch(function(){}) : bgv.pause();
+    }, { threshold: 0 }).observe(bgv.parentElement);
+  }
+})();
+
+</script>
+<script>
+(function(){
+  "use strict";
+  var CUR = {
+    GBP: { sym: "\u00a3", install: "\u00a34,995", installNum: 4995, monthly: "\u00a3995", fee: 995, rate: 100, min: 50, max: 400 },
+    EUR: { sym: "\u20ac", install: "\u20ac4,995", installNum: 4995, monthly: "\u20ac1,195", fee: 1195, rate: 100, min: 50, max: 400 },
+    USD: { sym: "$", install: "$5,995", installNum: 5995, monthly: "$1,295", fee: 1295, rate: 100, min: 50, max: 400 }
+  };
+  var EU = ["AT","BE","BG","HR","CY","CZ","DK","EE","FI","FR","DE","GR","HU","IE","IT","LV","LT","LU","MT","NL","PL","PT","RO","SK","SI","ES","SE","CH","NO","IS","LI","MC","AD"];
+  var subs = [], code = "GBP";
+  function fromCountry(c){ if(c==="GB")return"GBP"; if(c==="US"||c==="CA")return"USD"; if(EU.indexOf(c)!==-1)return"EUR"; return"USD"; }
+  function fromTimezone(){
+    try { var tz = Intl.DateTimeFormat().resolvedOptions().timeZone||"";
+      if(tz==="Europe/London"||tz==="Europe/Belfast")return"GBP";
+      if(tz==="Europe/Dublin")return"EUR";
+      if(tz.indexOf("Europe/")===0)return"EUR";
+      if(tz.indexOf("America/")===0||tz.indexOf("Canada/")===0||tz.indexOf("US/")===0)return"USD";
+    } catch(e){}
+    return "GBP";
+  }
+  function set(c){ code = c; subs.forEach(function(fn){ fn(CUR[c], c); }); }
+  window.__aiosOnCur = function(fn){ subs.push(fn); fn(CUR[code], code); };
+
+  /* pricing spans */
+  window.__aiosOnCur(function(cur){
+    document.querySelectorAll('[data-price="install"]').forEach(function(el){ el.textContent = cur.install; });
+    document.querySelectorAll('[data-price="monthly"]').forEach(function(el){ el.textContent = cur.monthly; });
+  });
+
+  /* roi calculator */
+  var rate = document.getElementById("roi-rate"), hrs = document.getElementById("roi-hrs");
+  if (rate && hrs) {
+    var cur = CUR[code];
+    function fmt(n){ return cur.sym + Math.round(n).toLocaleString("en-US"); }
+    function calc(){
+      var weekly = (+rate.value) * (+hrs.value);
+      var monthly = weekly * 4.33;
+      var mult = (monthly / cur.fee).toFixed(1);
+      var wks = Math.max(1, Math.ceil(cur.installNum / weekly));
+      document.getElementById("roi-rate-out").textContent = fmt(+rate.value);
+      document.getElementById("roi-hrs-out").textContent = hrs.value;
+      document.getElementById("roi-monthly").textContent = fmt(monthly);
+      document.getElementById("roi-fee").textContent = cur.monthly;
+      document.getElementById("roi-recover").textContent = fmt(monthly);
+      document.getElementById("roi-verdict").innerHTML = "<b>" + mult + "\u00d7</b> your money back, every single month.";
+      document.getElementById("roi-payback").innerHTML = "And the one-time <b>" + cur.install + "</b> build pays for itself in about <b>" + wks + (wks === 1 ? " week" : " weeks") + "</b>.";
+      var pct = Math.max(8, Math.min(100, (cur.fee/monthly)*100));
+      document.getElementById("roi-paybar").style.width = pct + "%";
+    }
+    rate.addEventListener("input", calc);
+    hrs.addEventListener("input", calc);
+    window.__aiosOnCur(function(c){ cur = c; rate.min = c.min; rate.max = c.max; rate.value = c.rate; calc(); });
+  }
+
+  set(fromTimezone());
+  var ctrl = new AbortController();
+  var timer = setTimeout(function(){ ctrl.abort(); }, 1500);
+  fetch("https://api.country.is", { signal: ctrl.signal })
+    .then(function(r){ return r.json(); })
+    .then(function(d){ clearTimeout(timer); if (d && d.country) set(fromCountry(d.country)); })
+    .catch(function(){ clearTimeout(timer); });
+})();
+</script>
 </body>
 </html>
