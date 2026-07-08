@@ -53,13 +53,65 @@ h1 .accent{color:var(--green)}
 .chips span{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:7px 14px;background:rgba(10,12,10,0.55)}
 .chips svg{flex:none}
 
-/* booking card */
-.book{max-width:1080px;margin:56px auto 0;padding:0 24px}
-.book-plate{background:linear-gradient(160deg,rgba(25,201,119,0.55),rgba(25,201,119,0.08));border-radius:21px;padding:1px}
-.book-frame{background:#0E100E;border-radius:20px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,0.5);min-height:720px}
-.book-frame iframe{display:block;width:100%;border:none;min-height:720px}
-.book-note{font-family:var(--mono);font-size:12px;color:var(--dim);text-align:center;margin-top:22px}
-.book-note b{color:var(--green);font-weight:400}
+/* ---------- custom booking calendar ---------- */
+.cal-wrap{max-width:1120px;margin:52px auto 0;padding:0 24px}
+.cal{background:linear-gradient(160deg,rgba(25,201,119,0.5),rgba(25,201,119,0.06));border-radius:var(--r-lg);padding:1px;box-shadow:0 40px 100px rgba(0,0,0,0.55)}
+.cal-inner{background:#0B0D0B;border-radius:calc(var(--r-lg) - 1px);overflow:hidden}
+.cal-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:clamp(24px,3vw,38px) clamp(24px,3.4vw,44px);border-bottom:1px solid var(--line);background:linear-gradient(180deg,rgba(25,201,119,0.06),rgba(25,201,119,0))}
+.cal-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--green)}
+.cal-title{font-family:var(--disp);font-weight:600;font-size:clamp(23px,3vw,32px);letter-spacing:-0.02em;margin-top:8px}
+.cal-live{display:inline-flex;align-items:center;gap:8px;flex:none;font-size:12.5px;font-weight:500;color:#C7E9D7;background:rgba(25,201,119,0.1);border:1px solid rgba(25,201,119,0.3);border-radius:999px;padding:7px 14px}
+.cal-live i{width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(25,201,119,0.5)}70%{box-shadow:0 0 0 7px rgba(25,201,119,0)}100%{box-shadow:0 0 0 0 rgba(25,201,119,0)}}
+.cal-grid{display:grid;grid-template-columns:1fr 1fr}
+.cal-col{padding:clamp(24px,3vw,38px) clamp(24px,3.4vw,44px)}
+.cal-col+.cal-col{border-left:1px solid var(--line)}
+.step{display:flex;align-items:flex-start;gap:13px;margin-bottom:26px}
+.step-n{flex:none;font-family:var(--mono);font-size:12px;color:var(--green);border:1px solid rgba(25,201,119,0.35);border-radius:9px;width:34px;height:34px;display:grid;place-items:center}
+.step h3{font-family:var(--disp);font-weight:600;font-size:19px;letter-spacing:-0.01em}
+.step p{color:var(--muted);font-size:13.5px;margin-top:3px}
+.days{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.day{background:#141714;border:1px solid var(--line-2);border-radius:14px;padding:14px 12px;cursor:pointer;text-align:left;transition:border-color .15s,background .15s;font-family:inherit;color:inherit;display:block}
+.day:hover{border-color:rgba(25,201,119,0.5)}
+.day .dow{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:0.1em;color:var(--dim);text-transform:uppercase}
+.day .dnum{display:block;font-family:var(--disp);font-weight:600;font-size:17px;margin-top:6px}
+.day.on{background:rgba(25,201,119,0.14);border-color:var(--green);box-shadow:0 6px 20px rgba(25,201,119,0.15)}
+.day.on .dow{color:var(--green)}
+.day:focus-visible,.slot:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+.slots-sep{height:1px;background:var(--line);margin:26px 0 20px}
+.slots-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:16px}
+.slots-head b{font-family:var(--disp);font-weight:600;font-size:16px}
+.slots-head span{font-size:12.5px;color:var(--dim)}
+.slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(118px,1fr));gap:12px}
+.slot{background:#141714;border:1px solid var(--line-2);border-radius:11px;padding:13px 10px;text-align:center;cursor:pointer;font-family:var(--disp);font-weight:600;font-size:14.5px;color:var(--ink);transition:border-color .15s,background .15s}
+.slot:hover{border-color:rgba(25,201,119,0.5)}
+.slot.on{background:var(--green);border-color:var(--green);color:var(--green-ink)}
+.field{margin-bottom:18px}
+.field label{display:block;font-size:13.5px;font-weight:500;color:#C9CFC9;margin-bottom:8px}
+.field input,.field textarea{width:100%;background:#141714;border:1px solid var(--line-2);border-radius:11px;padding:13px 15px;color:var(--ink);font-family:inherit;font-size:14.5px;transition:border-color .15s}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--green)}
+.field textarea{resize:vertical;min-height:92px}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--muted);margin:6px 0 20px;line-height:1.5;cursor:pointer}
+.consent input{margin-top:2px;accent-color:var(--green);width:16px;height:16px;flex:none}
+.book-btn{width:100%;background:var(--green);color:var(--green-ink);font-family:var(--body);font-weight:600;font-size:15.5px;border:none;border-radius:12px;padding:15px;cursor:pointer;transition:background .15s,opacity .15s}
+.book-btn:hover:not(:disabled){background:#2BD684}
+.book-btn:disabled{opacity:0.45;cursor:not-allowed}
+.cal-msg{font-size:13px;margin-top:14px;text-align:center;min-height:18px;color:var(--muted)}
+.cal-msg.err{color:#ff8a8a}
+.cal-loading{color:var(--dim);font-size:14px;padding:20px 0;text-align:center}
+.cal-done{text-align:center;padding:clamp(40px,6vw,80px) 24px}
+.cal-done .ok{width:70px;height:70px;border-radius:50%;background:rgba(25,201,119,0.14);border:1px solid rgba(25,201,119,0.4);display:grid;place-items:center;margin:0 auto 24px}
+.cal-done h3{font-family:var(--disp);font-weight:600;font-size:26px;letter-spacing:-0.02em}
+.cal-done p{color:var(--muted);font-size:15.5px;margin-top:12px;max-width:440px;margin-left:auto;margin-right:auto}
+.cal-done .when{display:inline-block;margin-top:20px;font-family:var(--mono);font-size:13px;color:var(--green);border:1px solid rgba(25,201,119,0.3);border-radius:999px;padding:9px 18px}
+.cal-note{font-family:var(--mono);font-size:12px;color:var(--dim);text-align:center;margin-top:22px}
+.cal-note b{color:var(--green);font-weight:400}
+@media (max-width:760px){
+  .cal-grid{grid-template-columns:1fr}
+  .cal-col+.cal-col{border-left:none;border-top:1px solid var(--line)}
+  .cal-head{flex-direction:column;gap:14px}
+  .days{grid-template-columns:repeat(2,1fr)}
+}
 
 /* footer */
 footer{margin-top:120px;border-top:1px solid var(--line);padding:40px 0}
@@ -99,13 +151,51 @@ footer{margin-top:120px;border-top:1px solid var(--line);padding:40px 0}
   </div>
 </header>
 
-<section class="book">
-  <div class="book-plate">
-    <div class="book-frame">
-      <iframe src="https://links.ancoai.com/widget/booking/uba8BTElzEx4HlGVuh6p" scrolling="no" id="uba8BTElzEx4HlGVuh6p_1783500747576" title="Book a call with Anco AI"></iframe>
+<section class="cal-wrap">
+  <div class="cal">
+    <div class="cal-inner">
+      <div class="cal-head">
+        <div>
+          <div class="cal-eyebrow">Live calendar</div>
+          <h2 class="cal-title">Book your AIOS mapping session</h2>
+        </div>
+        <div class="cal-live"><i></i> Live availability</div>
+      </div>
+      <div id="cal-main">
+        <div class="cal-grid">
+          <div class="cal-col">
+            <div class="step"><span class="step-n">01</span><div><h3>Choose a slot</h3><p id="tz-note">Loading live availability&hellip;</p></div></div>
+            <div class="days" id="days"></div>
+            <div id="slots-wrap" hidden>
+              <div class="slots-sep"></div>
+              <div class="slots-head"><b id="slots-day"></b><span id="slots-count"></span></div>
+              <div class="slots" id="slots"></div>
+            </div>
+            <div class="cal-loading" id="days-loading">Fetching open times&hellip;</div>
+          </div>
+          <div class="cal-col">
+            <div class="step"><span class="step-n">02</span><div><h3>Your details</h3><p id="details-sub">Select a time to unlock booking.</p></div></div>
+            <form id="book-form" autocomplete="on" novalidate>
+              <div class="field"><label for="f-name">Full name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+              <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+              <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
+              <div class="field"><label for="f-notes">Anything we should know before the call?</label><textarea id="f-notes" name="notes"></textarea></div>
+              <label class="consent"><input type="checkbox" id="f-consent" checked> I confirm that Anco AI can contact me about this appointment.</label>
+              <button type="submit" class="book-btn" id="book-btn" disabled>Select a time first</button>
+              <div class="cal-msg" id="cal-msg"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="cal-done" id="cal-done" hidden>
+        <div class="ok"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#19C977" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <h3>You're booked in.</h3>
+        <p>Check your email for the confirmation and calendar invite. Talk soon.</p>
+        <div class="when" id="done-when"></div>
+      </div>
     </div>
   </div>
-  <div class="book-note">Live on your data in 14 days, or the install is refunded. <b>Your data stays yours.</b></div>
+  <div class="cal-note">Live on your data in 14 days, or the install is refunded. <b>Your data stays yours.</b></div>
 </section>
 
 <footer>
@@ -120,6 +210,125 @@ footer{margin-top:120px;border-top:1px solid var(--line);padding:40px 0}
   </div>
 </footer>
 
-<script src="https://links.ancoai.com/js/form_embed.js" type="text/javascript"></script>
+<script>
+(function(){
+  "use strict";
+  var BASE="https://backend.leadconnectorhq.com";
+  var CAL="uba8BTElzEx4HlGVuh6p";
+  var BOOK_URL="https://booking.ancoai.co.uk";
+  var TZ;
+  try{ TZ=Intl.DateTimeFormat().resolvedOptions().timeZone||"Europe/London"; }catch(e){ TZ="Europe/London"; }
+
+  var $=function(id){return document.getElementById(id);};
+  var slotsByDay={}, selectedSlot=null;
+  var elDays=$("days"), elLoading=$("days-loading"), elWrap=$("slots-wrap"), elSlots=$("slots"),
+      elDay=$("slots-day"), elCount=$("slots-count"), elTz=$("tz-note"), elSub=$("details-sub"),
+      elBtn=$("book-btn"), elMsg=$("cal-msg"), elForm=$("book-form"), elMain=$("cal-main"),
+      elDone=$("cal-done"), elDoneWhen=$("done-when");
+
+  function tzLabel(){ return TZ.replace(/_/g," "); }
+  function fmtTime(iso){ return new Intl.DateTimeFormat("en-US",{hour:"numeric",minute:"2-digit",timeZone:TZ}).format(new Date(iso)); }
+  function dowShort(iso){ return new Intl.DateTimeFormat("en-US",{weekday:"short",timeZone:TZ}).format(new Date(iso)).toUpperCase(); }
+  function mdShort(iso){ return new Intl.DateTimeFormat("en-US",{month:"short",day:"numeric",timeZone:TZ}).format(new Date(iso)); }
+  function dayLong(iso){ return new Intl.DateTimeFormat("en-US",{weekday:"long",month:"long",day:"numeric",timeZone:TZ}).format(new Date(iso)); }
+
+  function loadSlots(){
+    var now=Date.now(), end=now+14*86400*1000;
+    var url=BASE+"/calendars/"+CAL+"/free-slots?startDate="+now+"&endDate="+end+"&timezone="+encodeURIComponent(TZ);
+    fetch(url,{headers:{"channel":"APP","source":"calendar"}})
+      .then(function(r){ if(!r.ok) throw new Error("slots "+r.status); return r.json(); })
+      .then(function(data){
+        slotsByDay={};
+        Object.keys(data).forEach(function(k){
+          if(k==="traceId") return;
+          var arr=(data[k]&&data[k].slots)||[];
+          if(arr.length) slotsByDay[k]=arr;
+        });
+        renderDays();
+      })
+      .catch(function(){ elLoading.textContent="Couldn't load times. Please refresh, or email dave@ancoai.com."; });
+  }
+
+  function renderDays(){
+    var days=Object.keys(slotsByDay).sort();
+    elLoading.hidden=true;
+    if(!days.length){ elLoading.hidden=false; elLoading.textContent="No open times in the next two weeks. Email dave@ancoai.com and we'll sort one."; return; }
+    elTz.textContent="Times shown in "+tzLabel()+".";
+    elDays.innerHTML="";
+    days.forEach(function(dk){
+      var iso=slotsByDay[dk][0];
+      var b=document.createElement("button");
+      b.type="button"; b.className="day"; b.setAttribute("data-day",dk);
+      b.innerHTML='<span class="dow">'+dowShort(iso)+'</span><span class="dnum">'+mdShort(iso)+'</span>';
+      b.addEventListener("click",function(){ selectDay(dk); });
+      elDays.appendChild(b);
+    });
+    selectDay(days[0]);
+  }
+
+  function selectDay(dk){
+    selectedSlot=null; syncBtn();
+    Array.prototype.forEach.call(elDays.children,function(c){ c.classList.toggle("on",c.getAttribute("data-day")===dk); });
+    var arr=slotsByDay[dk]||[];
+    elDay.textContent=dayLong(arr[0]);
+    elCount.textContent=arr.length+(arr.length===1?" slot":" slots");
+    elSlots.innerHTML="";
+    arr.forEach(function(iso){
+      var b=document.createElement("button");
+      b.type="button"; b.className="slot"; b.setAttribute("data-iso",iso);
+      b.textContent=fmtTime(iso);
+      b.addEventListener("click",function(){ selectSlot(iso,b); });
+      elSlots.appendChild(b);
+    });
+    elWrap.hidden=false;
+  }
+
+  function selectSlot(iso,btn){
+    selectedSlot=iso;
+    Array.prototype.forEach.call(elSlots.children,function(c){ c.classList.toggle("on",c===btn); });
+    elSub.textContent="Booking "+dayLong(iso)+" at "+fmtTime(iso)+" ("+tzLabel()+").";
+    syncBtn();
+  }
+
+  function syncBtn(){
+    if(selectedSlot){ elBtn.disabled=false; elBtn.textContent="Book strategy call"; }
+    else { elBtn.disabled=true; elBtn.textContent="Select a time first"; }
+  }
+
+  elForm.addEventListener("submit",function(e){
+    e.preventDefault();
+    if(!selectedSlot) return;
+    var name=$("f-name").value.trim(), email=$("f-email").value.trim(),
+        phone=$("f-phone").value.trim(), notes=$("f-notes").value.trim(), consent=$("f-consent").checked;
+    elMsg.className="cal-msg";
+    if(!name||!email){ elMsg.classList.add("err"); elMsg.textContent="Please add your name and email."; return; }
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ elMsg.classList.add("err"); elMsg.textContent="That email doesn't look right."; return; }
+    if(!consent){ elMsg.classList.add("err"); elMsg.textContent="Please tick the consent box to book."; return; }
+    elBtn.disabled=true; elBtn.textContent="Booking…"; elMsg.textContent="";
+
+    var body={ startTime:selectedSlot, name:name, email:email, phone:phone, notes:notes, timezone:TZ };
+
+    fetch(BOOK_URL,{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify(body)
+    })
+    .then(function(r){ return r.json().then(function(j){ return {ok:r.ok,status:r.status,j:j}; },function(){ return {ok:r.ok,status:r.status,j:{}}; }); })
+    .then(function(res){
+      if(!res.ok||!res.j.ok){ throw new Error((res.j&&res.j.error)||("Booking failed ("+res.status+")")); }
+      elDoneWhen.textContent=dayLong(selectedSlot)+" · "+fmtTime(selectedSlot)+" ("+tzLabel()+")";
+      elMain.hidden=true; elDone.hidden=false;
+      elDone.scrollIntoView({block:"center",behavior:"smooth"});
+    })
+    .catch(function(err){
+      elBtn.disabled=false; elBtn.textContent="Book strategy call";
+      elMsg.classList.add("err");
+      elMsg.textContent=(err&&err.message)?err.message:"Something went wrong. Please try again or email dave@ancoai.com.";
+    });
+  });
+
+  loadSlots();
+})();
+</script>
 </body>
 </html>

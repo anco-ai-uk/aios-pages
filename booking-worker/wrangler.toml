@@ -1,0 +1,15 @@
+name = "anco-booking"
+main = "src/index.js"
+compatibility_date = "2026-07-01"
+workers_dev = false
+
+routes = [
+  { pattern = "booking.ancoai.co.uk", custom_domain = true }
+]
+
+[vars]
+GHL_CALENDAR_ID = "uba8BTElzEx4HlGVuh6p"
+GHL_LOCATION_ID = "w0gjQohBhe5hV88P7fYf"
+
+# GHL_TOKEN is a secret, NOT stored here. Set it with:
+#   npx wrangler secret put GHL_TOKEN
