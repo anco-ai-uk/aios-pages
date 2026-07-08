@@ -91,6 +91,15 @@
     font-size:14.5px; font-weight:600; cursor:pointer; user-select:none; transition:all .15s}
   .pill:hover{border-color:#3A3D44}
   .pill.on{background:var(--green-b); border-color:var(--green-b); color:#04150d; font-weight:700}
+  .pill.custom{display:inline-flex; align-items:center; gap:9px}
+  .pill.custom .x{cursor:pointer; font-weight:700; font-size:17px; line-height:1; opacity:.65; margin-right:-3px}
+  .pill.custom .x:hover{opacity:1}
+  .addrow{display:flex; gap:10px; margin-top:0; max-width:440px}
+  .addrow input{flex:1}
+  .addbtn{background:var(--panel2); border:1px solid var(--line); color:#E7E8EA; border-radius:12px; padding:0 20px;
+    font-family:var(--body); font-weight:600; font-size:14.5px; cursor:pointer; transition:all .15s}
+  .addbtn:hover{border-color:var(--green-b); color:#fff}
+  #customPills{margin-top:12px} #customPills:empty{margin-top:0}
 
   /* list rows (single choice) */
   .rows{margin-top:20px; display:flex; flex-direction:column}
@@ -168,7 +177,16 @@ const TASK_GROUPS = [
   ["Marketing", ["Creating content","Posting / scheduling social","Email / newsletters"]],
   ["Running the business", ["Pulling numbers into reports","Team updates / status checks","Sorting the inbox"]],
 ];
-const SOURCES = ["Stripe / payments","CRM (GHL etc.)","YouTube","Meta / Google Ads","Website analytics","Email tool","Spreadsheets","Other"];
+const SOURCE_GROUPS = [
+  ["Payments & finance", ["Stripe","PayPal","Xero","QuickBooks"]],
+  ["CRM & leads", ["GoHighLevel (GHL)","HubSpot","Salesforce","Pipedrive"]],
+  ["Email marketing", ["Kit (ConvertKit)","Mailchimp","ActiveCampaign","Klaviyo"]],
+  ["Ads", ["Meta Ads","Google Ads","TikTok Ads","LinkedIn Ads"]],
+  ["Analytics & content", ["Google Analytics","YouTube","Instagram","TikTok","LinkedIn","Facebook"]],
+  ["Scheduling & ops", ["Google Calendar","Calendly","Slack","Zoom","Notion","Airtable"]],
+  ["Data", ["Spreadsheets (Sheets / Excel)"]],
+];
+const PRESET_SOURCES = SOURCE_GROUPS.flatMap(g=>g[1]);
 
 const state = { name:"", email:"", business:"", team:"", currency:"£", tasks:new Set(), biggest:"", sources:new Set(), dream:"" };
 const params = new URLSearchParams(location.search);
@@ -225,10 +243,17 @@ const STEPS = [
     } },
 
   { key:"sources",
-    body:`<div class="q">Where do your numbers live?</div>
-      <p class="hint">The tools that hold your data. Tap any.</p>
-      <div class="pills" id="src">${SOURCES.map(s=>`<span class="pill" data-val="${esc(s)}">${s}</span>`).join("")}</div>`,
-    load(){ multi('src', state.sources); } },
+    body:`<div class="q">Where does your data live?</div>
+      <p class="hint">The tools and platforms that hold your data. Tap any — and add your own below.</p>
+      <div id="src">${SOURCE_GROUPS.map(([g,items])=>`<div class="grp"><div class="gl">${g}</div><div class="pills">${items.map(s=>`<span class="pill" data-val="${esc(s)}">${s}</span>`).join("")}</div></div>`).join("")}</div>
+      <div class="grp"><div class="gl">Something else?</div>
+        <div class="addrow">
+          <input type="text" id="i_custom" placeholder="Type a tool or platform, then Add" autocomplete="off">
+          <button type="button" class="addbtn" id="addbtn">Add</button>
+        </div>
+        <div class="pills" id="customPills"></div>
+      </div>`,
+    load(){ multi('src', state.sources); wireCustom(); } },
 
   { key:"dream", last:true,
     body:`<div class="q">If you got 2 full days a month back…</div>
@@ -246,6 +271,19 @@ function single(id, val, set){
 function multi(scopeId, store){
   i(scopeId).querySelectorAll('.pill').forEach(p=>{ if(store.has(p.dataset.val)) p.classList.add('on');
     p.onclick=()=>{ p.classList.toggle('on'); p.classList.contains('on')?store.add(p.dataset.val):store.delete(p.dataset.val); }; });
+}
+function wireCustom(){
+  renderCustoms();
+  const add=()=>{ const v=i('i_custom').value.trim(); if(!v) return;
+    if(![...state.sources].some(s=>s.toLowerCase()===v.toLowerCase())) state.sources.add(v);
+    i('i_custom').value=''; renderCustoms(); i('i_custom').focus(); };
+  i('addbtn').onclick=add;
+  i('i_custom').addEventListener('keydown', e=>{ if(e.key==='Enter'){ e.preventDefault(); e.stopPropagation(); add(); } });
+}
+function renderCustoms(){
+  const customs=[...state.sources].filter(s=>!PRESET_SOURCES.includes(s));
+  i('customPills').innerHTML = customs.map(s=>`<span class="pill on custom" data-val="${esc(s)}">${s}<b class="x" data-x="${esc(s)}">×</b></span>`).join("");
+  i('customPills').querySelectorAll('.x').forEach(x=>x.onclick=e=>{ e.stopPropagation(); state.sources.delete(x.dataset.x); renderCustoms(); });
 }
 function showErr(m){ i('err').textContent=m; setTimeout(()=>{ if(i('err').textContent===m) i('err').textContent=""; },2600); }
 
