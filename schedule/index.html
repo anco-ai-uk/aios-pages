@@ -316,9 +316,8 @@ footer{margin-top:120px;border-top:1px solid var(--line);padding:40px 0}
     .then(function(r){ return r.json().then(function(j){ return {ok:r.ok,status:r.status,j:j}; },function(){ return {ok:r.ok,status:r.status,j:{}}; }); })
     .then(function(res){
       if(!res.ok||!res.j.ok){ throw new Error((res.j&&res.j.error)||("Booking failed ("+res.status+")")); }
-      elDoneWhen.textContent=dayLong(selectedSlot)+" · "+fmtTime(selectedSlot)+" ("+tzLabel()+")";
-      elMain.hidden=true; elDone.hidden=false;
-      elDone.scrollIntoView({block:"center",behavior:"smooth"});
+      var q = new URLSearchParams({ name: name, email: email }).toString();
+      window.location.href = "/booked/?" + q;
     })
     .catch(function(err){
       elBtn.disabled=false; elBtn.textContent="Book strategy call";
