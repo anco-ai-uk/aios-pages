@@ -410,6 +410,17 @@ footer{border-top:1px solid var(--line);padding:44px 0}
 .hero-guarantee svg{flex:none}
 .scarcity{display:inline-block;margin:0 auto 20px;font-size:14px;font-weight:600;color:#03130B;background:rgba(3,19,11,0.18);border-radius:999px;padding:9px 18px}
 .scarcity b{font-weight:700}
+#whynow .head{max-width:780px}
+.wn-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--green);margin-bottom:14px}
+.wn-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.wn-stat{background:var(--panel);border:1px solid var(--line);border-radius:var(--r-md);padding:30px 26px}
+.wn-num{font-family:var(--disp);font-weight:700;font-size:clamp(38px,4.6vw,52px);letter-spacing:-0.03em;color:var(--green);font-variant-numeric:tabular-nums;line-height:1}
+.wn-lbl{color:var(--muted);font-size:14px;line-height:1.55;margin-top:14px}
+.wn-src{font-family:var(--mono);font-size:11px;color:var(--dim);text-align:center;margin-top:26px}
+.wn-close{max-width:760px;margin:46px auto 0;text-align:center}
+.wn-close p{font-family:var(--disp);font-weight:600;font-size:clamp(20px,2.4vw,26px);line-height:1.4;letter-spacing:-0.01em;color:var(--ink)}
+@media (max-width:820px){.wn-stats{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:480px){.wn-stats{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -827,6 +838,25 @@ footer{border-top:1px solid var(--line);padding:44px 0}
   </div>
 </section>
 
+<!-- ================= WHY NOW ================= -->
+<section class="tight" id="whynow">
+  <div class="wrap">
+    <div class="head">
+      <div class="wn-eyebrow">Why now</div>
+      <h2>The businesses winning with AI didn't work harder. They started earlier.</h2>
+      <p>Operational AI went from novelty to real advantage in under two years. The founders adopting it now are quietly pulling ahead, and the gap compounds every month.</p>
+    </div>
+    <div class="wn-stats">
+      <div class="wn-stat"><div class="wn-num" data-to="88" data-suffix="%">0%</div><div class="wn-lbl">of organisations now use AI in at least one part of their business, up from 78% a year before.</div></div>
+      <div class="wn-stat"><div class="wn-num" data-to="47" data-suffix="%">0%</div><div class="wn-lbl">of small businesses had adopted AI by 2025, double what it was two years earlier.</div></div>
+      <div class="wn-stat"><div class="wn-num" data-to="3.7" data-decimals="1" data-suffix="&times;">0&times;</div><div class="wn-lbl">average return reported for every &pound;1 invested in AI.</div></div>
+      <div class="wn-stat"><div class="wn-num" data-to="70" data-suffix="%">0%</div><div class="wn-lbl">of the work you do today is already automatable with current AI.</div></div>
+    </div>
+    <div class="wn-src">Sources: McKinsey State of AI 2025 &middot; McKinsey, economic potential of generative AI &middot; US small-business AI adoption research</div>
+    <div class="wn-close"><p>Every month you stay manual, a competitor who didn't gets further ahead. In eighteen months this won't be an edge, it'll be the baseline. The only question is whether you'll be early enough for it to matter.</p></div>
+  </div>
+</section>
+
 <!-- ================= PRICING ================= -->
 <section id="pricing">
   <div class="wrap">
@@ -1137,6 +1167,28 @@ footer{border-top:1px solid var(--line);padding:44px 0}
     .then(function(r){ return r.json(); })
     .then(function(d){ clearTimeout(timer); if (d && d.country) set(fromCountry(d.country)); })
     .catch(function(){ clearTimeout(timer); });
+})();
+</script>
+<script>
+/* count-up stats on scroll */
+(function(){
+  "use strict";
+  var nums = document.querySelectorAll('.wn-num');
+  if(!nums.length) return;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function fmt(el, v){ var d = parseInt(el.getAttribute('data-decimals')||'0',10); return (el.getAttribute('data-prefix')||'') + v.toFixed(d) + (el.getAttribute('data-suffix')||''); }
+  function run(el){
+    var to = parseFloat(el.getAttribute('data-to'));
+    if(reduce){ el.textContent = fmt(el, to); return; }
+    var dur = 1600, start = null;
+    function step(ts){ if(!start) start = ts; var p = Math.min((ts-start)/dur, 1); var e = 1 - Math.pow(1-p, 3); el.textContent = fmt(el, to*e); if(p < 1) requestAnimationFrame(step); else el.textContent = fmt(el, to); }
+    requestAnimationFrame(step);
+  }
+  if(!('IntersectionObserver' in window)){ nums.forEach(run); return; }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if(en.isIntersecting){ run(en.target); io.unobserve(en.target); } });
+  }, { threshold: 0.6 });
+  nums.forEach(function(n){ io.observe(n); });
 })();
 </script>
 </body>
