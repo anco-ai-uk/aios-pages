@@ -603,15 +603,15 @@ footer{border-top:1px solid var(--line);padding:44px 0}
         </div>
       </div>
       <div class="roi-result">
-        <div class="roi-big"><span id="roi-monthly">£4,330</span></div>
+        <div class="roi-big"><span id="roi-monthly">£6,495</span></div>
         <div class="roi-big-sub">of your time, back in your pocket every month</div>
-        <div class="roi-yr-label">The monthly maths</div>
+        <div class="roi-yr-label">Your one-time build</div>
         <div class="roi-bars">
-          <div class="roi-bar"><span class="rb-lbl">You pay</span><div class="rb-track"><i id="roi-paybar" style="width:23%"></i></div><span class="rb-amt" id="roi-fee">£995</span></div>
-          <div class="roi-bar val"><span class="rb-lbl">You get back</span><div class="rb-track"><i style="width:100%"></i></div><span class="rb-amt" id="roi-recover">£4,330</span></div>
+          <div class="roi-bar"><span class="rb-lbl">You pay once</span><div class="rb-track"><i id="roi-paybar" style="width:77%"></i></div><span class="rb-amt" id="roi-fee">£4,995</span></div>
+          <div class="roi-bar val"><span class="rb-lbl">Back every month</span><div class="rb-track"><i style="width:100%"></i></div><span class="rb-amt" id="roi-recover">£6,495</span></div>
         </div>
-        <div class="roi-verdict" id="roi-verdict"><b>4.4&times;</b> your money back, every single month.</div>
-        <div class="roi-payback" id="roi-payback">And the one-time <b>£4,995</b> build pays for itself in about <b>5 weeks</b>.</div>
+        <div class="roi-verdict" id="roi-verdict">The build pays for itself in about <b>3 weeks</b>.</div>
+        <div class="roi-payback" id="roi-payback">That's <b>£78,000</b> of your time, back every year.</div>
       </div>
     </div>
   </div>
@@ -851,9 +851,9 @@ footer{border-top:1px solid var(--line);padding:44px 0}
 (function(){
   "use strict";
   var CUR = {
-    GBP: { sym: "\u00a3", install: "\u00a34,995", installNum: 4995, monthly: "\u00a3995", fee: 995, rate: 100, min: 50, max: 400 },
-    EUR: { sym: "\u20ac", install: "\u20ac4,995", installNum: 4995, monthly: "\u20ac1,195", fee: 1195, rate: 100, min: 50, max: 400 },
-    USD: { sym: "$", install: "$5,995", installNum: 5995, monthly: "$1,295", fee: 1295, rate: 100, min: 50, max: 400 }
+    GBP: { sym: "\u00a3", install: "\u00a34,995", installNum: 4995, monthly: "\u00a3995", fee: 995, rate: 150, min: 50, max: 400 },
+    EUR: { sym: "\u20ac", install: "\u20ac4,995", installNum: 4995, monthly: "\u20ac1,195", fee: 1195, rate: 150, min: 50, max: 400 },
+    USD: { sym: "$", install: "$5,995", installNum: 5995, monthly: "$1,295", fee: 1295, rate: 150, min: 50, max: 400 }
   };
   var EU = ["AT","BE","BG","HR","CY","CZ","DK","EE","FI","FR","DE","GR","HU","IE","IT","LV","LT","LU","MT","NL","PL","PT","RO","SK","SI","ES","SE","CH","NO","IS","LI","MC","AD"];
   var subs = [], code = "GBP";
@@ -883,17 +883,16 @@ footer{border-top:1px solid var(--line);padding:44px 0}
     function fmt(n){ return cur.sym + Math.round(n).toLocaleString("en-US"); }
     function calc(){
       var weekly = (+rate.value) * (+hrs.value);
-      var monthly = weekly * 4.33;
-      var mult = (monthly / cur.fee).toFixed(1);
-      var wks = Math.max(1, Math.ceil(cur.installNum / weekly));
+      var monthly = weekly * 4.33, annual = weekly * 52;
+      var wks = Math.max(1, Math.round(cur.installNum / weekly));
       document.getElementById("roi-rate-out").textContent = fmt(+rate.value);
       document.getElementById("roi-hrs-out").textContent = hrs.value;
       document.getElementById("roi-monthly").textContent = fmt(monthly);
-      document.getElementById("roi-fee").textContent = cur.monthly;
+      document.getElementById("roi-fee").textContent = cur.install;
       document.getElementById("roi-recover").textContent = fmt(monthly);
-      document.getElementById("roi-verdict").innerHTML = "<b>" + mult + "\u00d7</b> your money back, every single month.";
-      document.getElementById("roi-payback").innerHTML = "And the one-time <b>" + cur.install + "</b> build pays for itself in about <b>" + wks + (wks === 1 ? " week" : " weeks") + "</b>.";
-      var pct = Math.max(8, Math.min(100, (cur.fee/monthly)*100));
+      document.getElementById("roi-verdict").innerHTML = "The build pays for itself in about <b>" + wks + (wks === 1 ? " week" : " weeks") + "</b>.";
+      document.getElementById("roi-payback").innerHTML = "That's <b>" + fmt(annual) + "</b> of your time, back every year.";
+      var pct = Math.max(8, Math.min(100, (cur.installNum/monthly)*100));
       document.getElementById("roi-paybar").style.width = pct + "%";
     }
     rate.addEventListener("input", calc);
