@@ -391,13 +391,10 @@ footer{border-top:1px solid var(--line);padding:44px 0}
 .dw-ring .leg i{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:6px}
 .dash-w.profit{display:flex;flex-direction:column}
 .dash-w.profit .big{font-family:var(--disp);font-weight:700;font-size:42px;letter-spacing:-0.025em;margin-top:auto;font-variant-numeric:tabular-nums;line-height:1}
-@media (max-width:900px){
-  .dash{grid-template-columns:1fr}
-  .dash-side{display:none}
-  .dash-tiles{grid-template-columns:repeat(2,1fr)}
-  .dash-row{grid-template-columns:1fr}
-  .dt-big{font-size:32px}
-}
+/* dashboard shown as a scaled preview inside the left column of the panel */
+.dash-panel{align-items:center}
+.dash-scale{position:relative;width:100%;overflow:hidden;border-radius:20px;box-shadow:0 30px 70px rgba(0,0,0,0.5);aspect-ratio:1040/874}
+.dash-scale > .dash-frame{position:absolute;top:0;left:0;width:1040px;transform-origin:top left;box-shadow:none}
 </style>
 </head>
 <body>
@@ -619,7 +616,9 @@ footer{border-top:1px solid var(--line);padding:44px 0}
           </div>
         </div>
       </div>
-    </div>
+      </div>
+      </div>
+    </article>
   </div>
 </section>
 
@@ -915,6 +914,27 @@ footer{border-top:1px solid var(--line);padding:44px 0}
   </div>
 </footer>
 
+<script>
+/* scale the dashboard preview to fit its column */
+(function(){
+  "use strict";
+  function scaleDash(){
+    var w = document.querySelector('.dash-scale'); if(!w) return;
+    var f = w.querySelector('.dash-frame'); if(!f) return;
+    var natural = f.offsetWidth || 1040;
+    var scale = w.clientWidth / natural;
+    if (scale > 1) scale = 1;
+    f.style.transform = 'scale(' + scale + ')';
+    w.style.height = (f.offsetHeight * scale) + 'px';
+  }
+  window.addEventListener('resize', scaleDash);
+  window.addEventListener('load', scaleDash);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(scaleDash);
+  document.addEventListener('DOMContentLoaded', scaleDash);
+  scaleDash();
+  setTimeout(scaleDash, 400);
+})();
+</script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
