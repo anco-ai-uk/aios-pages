@@ -110,7 +110,9 @@ h1 .accent{color:var(--green)}
 .acard .a-ic [pathLength]{stroke-dasharray:1}
 .acard h4{font-family:var(--disp);font-weight:600;font-size:16px;letter-spacing:-0.01em}
 .acard p{color:var(--muted);font-size:13.5px;margin-top:8px;line-height:1.6}
-.acard.slot{border:1px dashed var(--line-2);background:transparent}
+.acard.slot{border:1px dashed var(--line-2);background:transparent;grid-column:1 / -1;display:flex;align-items:center;gap:14px 30px;flex-wrap:wrap}
+.acard.slot .a-top{flex:none}
+.acard.slot p{margin-top:0;flex:1;min-width:280px}
 .acard.slot h4{color:var(--green)}
 
 /* ---------- section heads ---------- */
