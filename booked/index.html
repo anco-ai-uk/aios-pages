@@ -148,8 +148,9 @@ const CHECK = '<svg viewBox="0 0 24 24"><polyline points="4,12 10,18 20,6"/></sv
 
 const state = { name:"", email:"", business:"", team:"", currency:"£", tasks:new Set(), biggest:"", sources:new Set(), dream:"" };
 const params = new URLSearchParams(location.search);
-state.name = params.get('name') || "";
-state.email = params.get('email') || "";
+const clean = v => (v && !v.includes("{{")) ? v : "";   // ignore un-substituted GHL merge fields
+state.name = clean(params.get('name'));
+state.email = clean(params.get('email'));
 
 const STEPS = [
   { intro:true, html:`
@@ -289,7 +290,7 @@ async function submit(){
     name:state.name, email:state.email, business:state.business, team:state.team,
     currency:state.currency, tasks:[...state.tasks], biggest:state.biggest,
     sources:[...state.sources], dream:state.dream,
-    contactId: params.get('contactId')||params.get('contact_id')||"", submittedFrom:"aios-booking-form",
+    contactId: clean(params.get('contactId')||params.get('contact_id')), submittedFrom:"aios-booking-form",
   };
   try{
     if(ENDPOINT && !ENDPOINT.startsWith("__"))
