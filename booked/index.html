@@ -319,15 +319,7 @@ async function submit(){
       await fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(data)});
     else console.warn("No ENDPOINT:",data);
   }catch(err){ console.error(err); }
-  i('card').querySelector('.cardtop').style.display="none";
-  i('foot').style.display="none";
-  i('fill').style.width="100%";
-  i('body').innerHTML=`<div class="done">
-    <div class="ring"><svg viewBox="0 0 24 24"><polyline points="4,12 10,18 20,6"/></svg></div>
-    <h2>Got it. <span class="g">See you on the call.</span></h2>
-    <p>Dave will walk in already knowing where your time's going, and ready to show you what's possible.</p>
-  </div>`;
-  window.scrollTo({top:0,behavior:"smooth"});
+  window.location.assign("/thanks/");   // go to the thank-you page
 }
 
 show(0);
