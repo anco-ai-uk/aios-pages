@@ -12,9 +12,20 @@
 
 const ALLOWED_ORIGINS = [
   "https://aios.ancoai.com",
+  "https://ancoai.com",
+  "https://www.ancoai.com",
+  "https://anco-website.pages.dev",
   "http://localhost:4620",
   "http://localhost:4661",
 ];
+// Cloudflare Pages preview deployments for the main site
+const ORIGIN_PATTERNS = [/^https:\/\/[a-z0-9-]+\.anco-website\.pages\.dev$/];
+
+// Calendars this relay may book, with per-calendar labels.
+const ALLOWED_CALENDARS = {
+  "uba8BTElzEx4HlGVuh6p": { title: "AIOS Mapping Session", source: "AIOS booking page" },
+  "CccmnHVmvw2RncPQ4fLD": { title: "Discovery Call", source: "ancoai.com booking page" },
+};
 
 const GHL = "https://services.leadconnectorhq.com";
 
@@ -43,7 +54,9 @@ export default {
       return json({ error: "That email doesn't look right." }, 422, cors);
     }
 
-    const CAL = env.GHL_CALENDAR_ID;
+    const requested = (body.calendarId || "").trim();
+    const CAL = ALLOWED_CALENDARS[requested] ? requested : env.GHL_CALENDAR_ID;
+    const calMeta = ALLOWED_CALENDARS[CAL] || { title: "AIOS Mapping Session", source: "AIOS booking page" };
     const LOC = env.GHL_LOCATION_ID;
     const auth = { Authorization: `Bearer ${env.GHL_TOKEN}`, "Content-Type": "application/json" };
 
@@ -59,7 +72,7 @@ export default {
         locationId: LOC, firstName, lastName, name, email,
         ...(phone ? { phone } : {}),
         timezone,
-        source: "AIOS booking page",
+        source: calMeta.source,
       }),
     });
     const upsertData = await upsert.json().catch(() => ({}));
@@ -76,7 +89,7 @@ export default {
         locationId: LOC,
         contactId,
         startTime,
-        title: `AIOS Mapping Session — ${name}`,
+        title: `${calMeta.title} — ${name}`,
         appointmentStatus: "confirmed",
         ignoreDateRange: false,
         toNotify: true,
@@ -91,7 +104,7 @@ export default {
         await fetch(`${GHL}/contacts/${contactId}/notes`, {
           method: "POST",
           headers: { ...auth, Version: "2021-07-28" },
-          body: JSON.stringify({ body: `AIOS booking note:\n${notes}` }),
+          body: JSON.stringify({ body: `${calMeta.title} booking note:\n${notes}` }),
         });
       } catch (_) { /* non-blocking */ }
     }
@@ -101,7 +114,8 @@ export default {
 };
 
 function corsHeaders(origin) {
-  const allow = ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0];
+  const ok = ALLOWED_ORIGINS.includes(origin) || ORIGIN_PATTERNS.some((p) => p.test(origin));
+  const allow = ok ? origin : ALLOWED_ORIGINS[0];
   return {
     "Access-Control-Allow-Origin": allow,
     "Access-Control-Allow-Methods": "POST, OPTIONS",
