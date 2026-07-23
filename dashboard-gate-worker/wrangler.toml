@@ -1,0 +1,14 @@
+name = "dashboard-gate"
+main = "src/index.js"
+compatibility_date = "2026-07-01"
+workers_dev = true
+
+[vars]
+# The CLIENT sub-account's location ID (Settings -> Business Profile in that sub-account)
+GHL_LOCATION_ID = "AnSYSwNy1Ms4BT9fOZ2M"
+REQUIRED_TAG = "dashboard-access"
+SESSION_HOURS = "72"
+
+# Secrets, NOT stored here. Set with:
+#   npx wrangler secret put GHL_TOKEN        (client sub-account PIT, contacts.readonly)
+#   npx wrangler secret put SESSION_SECRET   (any long random string)
