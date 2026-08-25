@@ -15,16 +15,24 @@ const ALLOWED_ORIGINS = [
   "https://ancoai.com",
   "https://www.ancoai.com",
   "https://anco-website.pages.dev",
+  "https://score.ancoai.com",
+  "https://autonomy.ancoai.com",
+  "https://autonomy-score.pages.dev",
   "http://localhost:4620",
   "http://localhost:4661",
+  "http://localhost:8080",
 ];
-// Cloudflare Pages preview deployments for the main site
-const ORIGIN_PATTERNS = [/^https:\/\/[a-z0-9-]+\.anco-website\.pages\.dev$/];
+// Cloudflare Pages preview deployments (main site + autonomy score)
+const ORIGIN_PATTERNS = [
+  /^https:\/\/[a-z0-9-]+\.anco-website\.pages\.dev$/,
+  /^https:\/\/[a-z0-9-]+\.autonomy-score\.pages\.dev$/,
+];
 
 // Calendars this relay may book, with per-calendar labels.
 const ALLOWED_CALENDARS = {
   "uba8BTElzEx4HlGVuh6p": { title: "AIOS Mapping Session", source: "AIOS booking page" },
   "CccmnHVmvw2RncPQ4fLD": { title: "Discovery Call", source: "ancoai.com booking page" },
+  "161FpyJFzVqOTzm073ut": { title: "Autonomy Review", source: "Autonomy Score page" },
 };
 
 const GHL = "https://services.leadconnectorhq.com";
